@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                    }
+                }
+            }
+        }
+    </script>
+    <title>Chat</title>
+</head>
+<body class="p-0 w-full h-[100vh] font-sans">
+    <div class="flex w-full h-full p-0 ">
+        <div class="block w-[240px] h-full p-[40px] relative">
+            <div class="w-full justify-center items-center">
+                <div class="p-[5px] w-[76px] block items-center justify-center mx-auto">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP05O_JtxaDO8e29kazAhy8n8Gi81v9k73ZA&usqp=CAU" 
+                    alt="avatar" class="size-[66px] rounded-full object-cover">
+                </div>
+                <div class="flex mx-auto mt-2 items-center ">
+                    <span class="flex font-semibold text-[14px]">Henry Jabbawockiez</span>
+                    <span class="flex mx-auto size-[12px] items-center justify-center"><i class="fas fa-chevron-down size-[12px]"></i></span>
+                </div>
+            </div>
+
+            <div class="w-full justify-center items-center bg-white mt-[60px] text-[14px]">
+                <ul class="items-center block">
+                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                        <i class="mr-[12px] fas fa-th-large"></i><span class="hidden sm:block">Home</span></li>
+                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                        <i class="mr-[12px] far fa-comment-dots"></i><span class="hidden sm:block">Chat</span></li>
+                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                        <i class="mr-[12px] far fa-user"></i><span class="hidden sm:block">Contact</span></li>
+                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                        <i class="mr-[12px] far fa-bell"></i><span class="hidden sm:block">Notifications</span></li>
+                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                        <i class="mr-[12px] far fa-calendar"></i><span class="hidden sm:block">Calender</span></li>
+                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                        <i class="mr-[12px] fas fa-cog"></i><span class="hidden sm:block">Settings</span></li>
+                </ul>
+            </div>
+            <div class="w-full justify-center items-center bg-white mt-[90px] text-[14px] ">
+                <li class=" h-[40px] uppercase text-[#707C97] font-bold list-none items-center flex cursor-pointer hover:text-[#4a5264]">
+                    <i class="fas fa-power-off mr-[18px]"></i>Log out</li>
+            </div>
+        </div>
+
+        <div class="px-[40px] w-[1278px] pt-[44px] flex space-x-[40px] bg-[#f3f3fb]">
+            <div class="w-2/5 overflow-y-auto">
+                <div class="w-full justify-between flex">
+                    <div class="block items-center">
+                        <span class="text-[20px] font-semibold block">Chats</span>
+                        <span class="block text-[12px] text-[#707C97] items-center">Recent Chats
+                            <i class="fas fa-angle-down"></i>
+                        </span>
+                    </div>
+                    <div class="inline-flex right-0 w-[200px] h-[44px] bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white justify-center items-center">
+                        <i class="fas fa-plus mx-1"></i>Create New Chat
+                    </div>
+                </div>
+                <div class="block space-y-[12px] mt-[12px] w-full">
+                    <div class="flex bg-white rounded-md p-0 overflow-hidden">      
+                        <i class="fas fa-search left-10px ml-9 leading-[44px] text-[#707C97] cursor-pointer"></i>                  
+                        <input type="text" name="" value="" class="w-2/3 block p-2 border border-transparent border-r-[#ddd] outline-none relative" 
+                            placeholder="Search"></input>
+                        <button type="" class="w-1/3 items-center block justify-center text-[#707C97]">Messages
+                            <i class="fas fa-angle-down"></i>
+                        </button>                        
+                    </div>
+                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
+                        <div class="flex w-full justify-between">
+                            <div class="flex space-x-3">
+                                <div class="relative">
+                                    <img src="https://bizweb.dktcdn.net/100/378/894/files/cach-tao-dang-chup-hinh-o-bien.jpg?v=1624865328807" alt="" 
+                                    class="object-cover size-[38px] rounded-full">
+                                    <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div>
+                                </div>
+                                <div class="block items-center justify-center">
+                                    <span class="font-semibold text-[14px] ">Luy Robin</span>
+                                    <p class="text-[12px] text-blue-400 font-semibold"><i class="fas fa-ellipsis-h"></i>
+                                        writes
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-[12px] font-semibold text-[#707C97]">1 minute ago</span>
+                        </div>
+                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
+                            <p class="w-[85%] text-[14px]">Most of its text is made up from sections 1.10.32–3 of Cicero's De finibus bonorum et malorum 
+                                (On the Boundaries of Goods and Evils; finibus may also be translated as purposes). </p>
+                            <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div>
+                        </div>
+                    </div>
+
+                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
+                        <div class="flex w-full justify-between">
+                            <div class="flex space-x-3">
+                                <div class="relative">
+                                    <img src="https://chothuestudio.com/wp-content/uploads/2023/06/baccb183122137c0a5dafa884d950c69.jpg" alt="" 
+                                    class="object-cover size-[38px] rounded-full">
+                                    <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div>
+                                </div>
+                                <div class="block items-center justify-center">
+                                    <span class="font-semibold text-[14px] ">Jared Sunn</span>
+                                    <p class="text-[12px] text-blue-400 font-semibold"><i class="fas fa-compact-disc"></i>
+                                        records voice message
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-[12px] font-semibold text-[#707C97]">1 minute ago</span>
+                        </div>
+                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
+                            <div class="w-[85%] text-[14px]"><i class="fas fa-microphone-alt"></i>
+                                Voice message (01:15) </div>
+                            <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">1</div>
+                        </div>
+                        <div class="w-[50%] mt-1 justify-between flex">
+                            <button type="file" class="py-2 px-3 rounded-full text-blue-600 font-semibold text-[14px] bg-blue-200">
+                                <i class="far fa-file-alt mr-2"></i>Files (x2)</button>
+                            <button type="file" class="py-2 px-3 rounded-full text-red-600 font-semibold text-[14px] bg-red-200">
+                                <i class="far fa-images mr-2"></i>Photo</button>
+                        </div>
+                    </div>
+
+                    <div class="block bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
+                        <div class="flex w-full justify-between">
+                            <div class="flex space-x-3">
+                                <div class="relative">
+                                    <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" 
+                                    class="object-cover size-[38px] rounded-full">
+                                    <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
+                                </div>
+                                <div class="block items-center justify-center">
+                                    <span class="font-semibold text-[14px] ">Nika Jerrardo</span>
+                                    <p class="text-[12px] text-[#f0f0f0] font-semibold">
+                                        <!-- <i class="fas fa-ellipsis-h"></i> -->
+                                        last online 5 hours ago
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-[12px] font-semibold text-[#f0f0f0]">3 days ago</span>
+                        </div>
+                        <div class="flex w-full mt-2 justify-between text-[#f0f0f0]">
+                            <p class="w-[85%] text-[14px]">Cicero famously orated against his political opponent Lucius Sergius Catilina.</p>
+                            <!-- <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div> -->
+                        </div>
+                    </div>
+
+                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
+                        <div class="flex w-full justify-between">
+                            <div class="flex space-x-3">
+                                <div class="relative">
+                                    <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" 
+                                    class="object-cover size-[38px] rounded-full">
+                                    <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
+                                </div>
+                                <div class="block items-center justify-center">
+                                    <span class="font-semibold text-[14px] ">david Amrosa</span>
+                                    <p class="text-[12px] text-blue-400 font-semibold">
+                                        <!-- <i class="fas fa-ellipsis-h"></i> -->
+                                        last online 5 hours ago
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="text-[12px] font-semibold text-[#707C97]">3 days ago</span>
+                        </div>
+                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
+                            <p class="w-[85%] text-[14px]">Cicero famously orated against his political opponent Lucius Sergius Catilina.</p>
+                            <!-- <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-3/5 bg-white">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
