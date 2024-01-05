@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/tailwind-scrollbar-daisyui@1.0.3/src/index.min.js"></script> -->
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+          }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+          }
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 100rem;
+          }
+    </style>
+    
     <title>Chat</title>
 </head>
-<body class="p-0 w-full h-[100vh] font-sans">
+<body class="p-0 w-full h-[100vh] font-sans">    
     <div class="flex w-full h-full p-0 ">
-        <div class="block w-[240px] h-full p-[40px] relative">
+        <div class="block w-[246px] h-full p-[40px] relative">
             <div class="w-full justify-center items-center">
                 <div class="p-[5px] w-[76px] block items-center justify-center mx-auto">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP05O_JtxaDO8e29kazAhy8n8Gi81v9k73ZA&usqp=CAU" 
@@ -27,23 +31,23 @@
                 </div>
                 <div class="flex mx-auto mt-2 items-center ">
                     <span class="flex font-semibold text-[14px]">Henry Jabbawockiez</span>
-                    <span class="flex mx-auto size-[12px] items-center justify-center"><i class="fas fa-chevron-down size-[12px]"></i></span>
+                    <span class="flex mx-auto size-[12px] items-center justify-center"><i class="fas fa-chevron-down size-[12px] cursor-pointer"></i></span>
                 </div>
             </div>
 
             <div class="w-full justify-center items-center bg-white mt-[60px] text-[14px]">
-                <ul class="items-center block">
-                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                <ul class="items-center block text-[#707C97] hover:text[#ccc]" id="menuBar">
+                    <li  class="changeText py-[18px] uppercase  font-bold cursor-pointer flex items-center ">
                         <i class="mr-[12px] fas fa-th-large"></i><span class="hidden sm:block">Home</span></li>
-                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                    <li  class="changeText py-[18px] uppercase  font-bold cursor-pointer flex items-center ">
                         <i class="mr-[12px] far fa-comment-dots"></i><span class="hidden sm:block">Chat</span></li>
-                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                    <li  class="changeText py-[18px] uppercase  font-bold cursor-pointer flex items-center ">
                         <i class="mr-[12px] far fa-user"></i><span class="hidden sm:block">Contact</span></li>
-                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                    <li  class="changeText py-[18px] uppercase  font-bold cursor-pointer flex items-center ">
                         <i class="mr-[12px] far fa-bell"></i><span class="hidden sm:block">Notifications</span></li>
-                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                    <li  class="changeText py-[18px] uppercase  font-bold cursor-pointer flex items-center ">
                         <i class="mr-[12px] far fa-calendar"></i><span class="hidden sm:block">Calender</span></li>
-                    <li class="py-[18px] uppercase text-[#707C97] font-bold hover:text-[#4a5264] cursor-pointer flex items-center">
+                    <li  class="changeText py-[18px] uppercase  font-bold cursor-pointer flex items-center ">
                         <i class="mr-[12px] fas fa-cog"></i><span class="hidden sm:block">Settings</span></li>
                 </ul>
             </div>
@@ -53,8 +57,9 @@
             </div>
         </div>
 
-        <div class="px-[40px] w-[1278px] pt-[44px] flex space-x-[40px] bg-[#f3f3fb]">
-            <div class="w-2/5 overflow-y-auto">
+        <div class="px-[40px] w-[1288px] pt-[44px] flex space-x-[40px] bg-[#f3f3fb]">
+
+            <div class="feed-area  w-2/5 overflow-y-auto">
                 <div class="w-full justify-between flex">
                     <div class="block items-center">
                         <span class="text-[20px] font-semibold block">Chats</span>
@@ -62,8 +67,8 @@
                             <i class="fas fa-angle-down"></i>
                         </span>
                     </div>
-                    <div class="inline-flex right-0 w-[200px] h-[44px] bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white justify-center items-center">
-                        <i class="fas fa-plus mx-1"></i>Create New Chat
+                    <div class="flex right-0 w-[200px] h-[44px] cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white justify-center items-center hover:from-[#08bde0] hover:to-[#3b88ff]">
+                        <i class="fas fa-plus mr-4"></i>Create New Chat
                     </div>
                 </div>
                 <div class="block space-y-[12px] mt-[12px] w-full">
@@ -122,9 +127,9 @@
                             <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">1</div>
                         </div>
                         <div class="w-[50%] mt-1 justify-between flex">
-                            <button type="file" class="py-2 px-3 rounded-full text-blue-600 font-semibold text-[14px] bg-blue-200">
+                            <button type="file" class="py-2 px-3 rounded-full text-blue-600 font-semibold text-[13px] bg-blue-200">
                                 <i class="far fa-file-alt mr-2"></i>Files (x2)</button>
-                            <button type="file" class="py-2 px-3 rounded-full text-red-600 font-semibold text-[14px] bg-red-200">
+                            <button type="file" class="py-2 px-3 rounded-full text-red-600 font-semibold text-[13px] bg-red-200">
                                 <i class="far fa-images mr-2"></i>Photo</button>
                         </div>
                     </div>
@@ -140,7 +145,7 @@
                                 <div class="block items-center justify-center">
                                     <span class="font-semibold text-[14px] ">Nika Jerrardo</span>
                                     <p class="text-[12px] text-[#f0f0f0] font-semibold">
-                                        <!-- <i class="fas fa-ellipsis-h"></i> -->
+                                        <!-- <i class="fas fa-ellipsis-h cursor-pointer"></i> -->
                                         last online 5 hours ago
                                     </p>
                                 </div>
@@ -157,7 +162,7 @@
                         <div class="flex w-full justify-between">
                             <div class="flex space-x-3">
                                 <div class="relative">
-                                    <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" 
+                                    <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/7/17/photo-4-16895567273911182507904.jpeg" alt="" 
                                     class="object-cover size-[38px] rounded-full">
                                     <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
                                 </div>
@@ -179,10 +184,192 @@
                 </div>
             </div>
 
-            <div class="w-3/5 bg-white">
-                
+            <div class="chat-area  w-3/5 bg-white relative block">
+                <div class="flex w-full bg-white p-0 overflow-hidden py-[18px] px-[36px] border border-transparent border-b-[#ddd] absolute top-0">
+                    <div class="flex w-full justify-between">
+                        <div class="flex space-x-3">
+                            <div class="relative">
+                                <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" 
+                                class="object-cover size-[38px] rounded-full">
+                                <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
+                            </div>
+                            <div class="block items-center justify-center">
+                                <span class="font-semibold text-[14px] ">Nika Jerrardo</span>
+                                <p class="text-[12px] text-blue-400 font-semibold">
+                                    <!-- <i class="fas fa-ellipsis-h"></i> -->
+                                    last online 5 hours ago
+                                </p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-x-3 ">
+                            <button type="file" class=" bg-[#fff] w-10 h-10 block text-center items-center rounded-full shadow-lg hover:bg-[#f9f6ff] text-[#707C97]"><i class="fas fa-paperclip"></i></button>
+                            <button type="file" class=" bg-[#fff] w-10 h-10 block text-center items-center rounded-full shadow-lg hover:bg-[#f9f6ff] text-[#707C97]"><i class="fas fa-ellipsis-v"></i></button>                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" content-Chat block py-4 px-[36px] w-full top-[80px] absolute overflow-y-auto h-[494px] space-y-3">
+                    <div class="w-[80%] float-left flex space-x-4">
+                        <div class="block">
+                            <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" class="size-[26px] object-cover rounded-full">
+                        </div>
+                        <div class="block max-w-[90%] space-y-3 pb-5">
+                            <div class="block max-w-[100%] w-max bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rounded-tl-none px-4 py-2 text-white text-[14px] relative itmes-center shadow-xl shadow-cyan-100">
+                                Hello! Finally found the time to write to you) I need your help in creating interactive animations for my mobile application.
+                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
+                                </div>
+                            </div>
+                            <div class="block max-w-[100%] w-max bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rounded-tl-none px-4 py-2 text-white text-[14px] relative itmes-center shadow-xl shadow-cyan-100">
+                                Can I send you files?
+                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
+                                </div>
+                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
+                                    4 days ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-[80%] float-right flex justify-end mr-8">
+                        <div class="block max-w-[70%] space-y-3 pb-5 ">
+                            <div class="block max-w-[100%] w-max bg-white rounded-lg rounded-br-none px-4 py-2 text-[#4a5264] text-[14px] relative itmes-center shadow-xl shadow-gray-100 border-[2px] border-gray-200">
+                                Hey! Okay, send out.
+                                <div class="absolute size-[18px] left-0 block top-[50%] -translate-y-1/2 -translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
+                                </div>
+                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-check-double"></i>
+                                </div>
+                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
+                                    4 days ago
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="w-[80%] float-left flex space-x-4">
+                        <div class="block">
+                            <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" class="size-[26px] object-cover rounded-full">
+                        </div>
+                        <div class="block max-w-[90%] space-y-3 pb-5">                            
+                            <div class="block max-w-[100%] w-max bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rounded-tl-none px-4 py-2 text-white text-[14px] relative itmes-center shadow-xl shadow-cyan-100">
+                                <div class="flex space-x-4 items-center">
+                                    <div class="size-[36px] bg-white cursor-pointer hover:bg-opacity-40 rounded-md bg-opacity-30 flex items-center text-center p-[6px]">
+                                        <i class="far fa-file w-[24px]"></i>
+                                    </div>
+                                    <div class="block space-y-1">
+                                        <span class="block">Style.zip</span>
+                                        <span class="block text-[12px] opacity-70">41.36 Mb</span>
+                                    </div>
+                                </div>
+                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
+                                </div>
+                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
+                                    4 days ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-[80%] float-right flex justify-end mr-8">
+                        <div class="block max-w-[70%] space-y-3 pb-5 ">
+                            <div class="block max-w-[100%] w-max bg-white cursor-pointer rounded-lg rounded-br-none px-4 py-2 text-[#4a5264] text-[14px] relative itmes-center shadow-xl shadow-gray-100 border-[2px] border-gray-200">
+                                Hello! I tweaked everything you asked. I am sending the finished file.
+                                <div class="block text-right text-[#2a8bf1]">(52.05 Mb) New_Style.zip
+                                    <i class="far fa-file w-[18px]"></i>
+                                </div>
+                                <div class="absolute size-[18px] left-0 block top-[50%] -translate-y-1/2 -translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
+                                </div>
+                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
+                                    3 days ago
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="w-[80%] float-right flex justify-end mr-8">
+                        <div class="block max-w-[70%] space-y-3 pb-5 ">
+                            <div class="block max-w-[100%] w-max bg-white cursor-pointer rounded-lg rounded-br-none px-4 py-2 text-[#4a5264] text-[14px] relative itmes-center shadow-xl shadow-gray-100 border-[2px] border-gray-200">
+                                Hello! I tweaked everything you asked. I am sending the finished file.
+                                <div class="block text-right text-[#2a8bf1]">(52.05 Mb) New_Style.zip
+                                    <i class="far fa-file w-[18px]"></i>
+                                </div>
+                                <div class="absolute size-[18px] left-0 block top-[50%] -translate-y-1/2 -translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
+                                </div>
+                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
+                                    3 days ago
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enter-Chat absolute p-0 py-[6px] w-full bottom-0 items-center bg-white">
+                    <div class="mx-[36px] border border-transparent border-t-[#ddd] flex py-4">
+                        <div class="block">
+                            <button type="button" id="dropdownButton" class="block bg-[#2a8bf1] hover:bg-[#2782e4] size-[32px] rounded-full text-white text-center items-center shadow-lg relative"
+                            data-dropdown-toggle="dropdownShow" onclick="showList()">
+                                <i class="fas fa-plus" aria-hidden="true"></i>
+                            </button>
+                            <div id="dropdownShow" class="z-10 hidden before:block absolute divide-y rounded-lg -translate-y-[120%] ease-in">
+                                <ul class="py-3 text-sm text-gray-700 dark:text-gray-200 space-y-3" aria-labelledby="dropdownButton">
+                                  <li class="flex bg-[#2a8bf1] size-[32px] rounded-full text-white justify-center items-center shadow-lg cursor-pointer hover:bg-[#2782e4]">
+                                    <i class="fas fa-film"></i>
+                                  </li>
+                                  <li class="flex bg-[#2a8bf1] size-[32px] rounded-full text-white justify-center items-center shadow-lg cursor-pointer hover:bg-[#2782e4]">
+                                    <i class="far fa-image"></i>
+                                  </li>
+                                  <li class="flex bg-[#2a8bf1] size-[32px] rounded-full text-white justify-center items-center shadow-lg cursor-pointer hover:bg-[#2782e4]">
+                                    <i class="far fa-file"></i>
+                                  </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex items-center mx-5 w-full">
+                            <input type="text" name="" value="" placeholder="Type a message here" class="block p-1 text-[14px] w-full px-3 outline-[#2a8bf1]">
+                            <div class="flex size-[18px] items-center justify-center text-[#707C97] px-5 cursor-pointer">
+                                <i class="far fa-smile"></i>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <button type="" class=" block bg-[#2a8bf1] hover:bg-[#2782e4] size-[32px] rounded-full text-white text-center items-center shadow-lg">
+                                <i class="fab fa-telegram-plane"></i></button>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+    <script src="./index.js"></script>
 </body>
+<script>
+    function showList() {
+      var show = document.getElementById('dropdownShow');
+      if (show.style.display === 'none') {
+        show.style.display = 'block';
+      } else {
+        show.style.display = 'none';
+      }
+    };
+
+    var navBar = document.getElementById("menuBar");
+    var menuLi = navBar.getElementsByClassName("changeText");
+    for (var i = 0; i < menuLi.length; i++) {
+        menuLi[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("text-[#2a8bf1]");
+            current[0].className = current[0].className.replace("text-[#2a8bf1]", "");
+            this.className += " text-[#2a8bf1]";
+        });
+    }
+
+  </script>
 </html>
