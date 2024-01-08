@@ -5,444 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/tailwind-scrollbar-daisyui@1.0.3/src/index.min.js"></script> -->
-    <style>
-        ::-webkit-scrollbar {
-            width: 6px;  
-          }
-        ::-webkit-scrollbar-track {
-            background: none; 
-          }
-        ::-webkit-scrollbar-thumb {
-            background: #aaaaaa; 
-            border-radius: 100rem;
-          }
-    </style>
-    
-    <title>Chat</title>
+    <title>Login</title>
 </head>
-<body class="p-0 w-full h-[100vh] font-sans transition-all">    
-    <div class="flex w-full h-full p-0 ">
-        <div class="block w-[246px] h-full px-0 py-[40px] relative">
-            <div class="w-full justify-center items-center px-0 sm:px-[32px] md:px-[40px]">
-                <div class="p-[1px] sm:p-[5px] size-[42px] sm:size-[76px] block items-center justify-center mx-auto">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP05O_JtxaDO8e29kazAhy8n8Gi81v9k73ZA&usqp=CAU" 
-                    alt="avatar" class="size-[36px] sm:size-[66px] rounded-full object-cover">
-                </div>
-                <div class=" mx-auto mt-2 items-center hidden sm:flex">
-                    <span class="flex font-semibold text-[12px] 2xl:text-[14px]">Henry Jabbawockiez</span>
-                    <span class="flex mx-auto size-[12px] items-center justify-center"><i class="fas fa-chevron-down size-[12px] cursor-pointer"></i></span>
-                </div>
-            </div>
-
-            <div class="w-full justify-center items-center bg-white mt-[60px] text-[14px]">
-                <ul class="items-center block text-[#707C97] hover:text[#ccc]" id="menuBar">
-                    <li  class="changeText py-[8px] my-[12px] uppercase px-0 sm:px-[32px] md:px-[40px] font-bold cursor-pointer block sm:flex text-center items-center ">
-                        <i class="mr-[12px] fas fa-th-large"></i><span class="hidden sm:block">Home</span></li>
-                    <li  class="changeText py-[8px] my-[12px] uppercase px-0 sm:px-[32px] md:px-[36px] font-bold cursor-pointer block sm:flex text-center items-center text-[#2a8bf1] border-4 border-transparent border-l-[#2a8bf1]">
-                        <i class="mr-[12px] far fa-comment-dots"></i><span class="hidden sm:block">Chat</span></li>
-                    <li  class="changeText py-[8px] my-[12px] uppercase px-0 sm:px-[32px] md:px-[40px] font-bold cursor-pointer block sm:flex text-center items-center ">
-                        <i class="mr-[12px] far fa-user"></i><span class="hidden sm:block">Contact</span></li>
-                    <li  class="changeText py-[8px] my-[12px] uppercase px-0 sm:px-[32px] md:px-[40px] font-bold cursor-pointer block sm:flex text-center items-center ">
-                        <i class="mr-[12px] far fa-bell"></i><span class="hidden sm:block">Notifications</span></li>
-                    <li  class="changeText py-[8px] my-[12px] uppercase px-0 sm:px-[32px] md:px-[40px] font-bold cursor-pointer block sm:flex text-center items-center ">
-                        <i class="mr-[12px] far fa-calendar"></i><span class="hidden sm:block">Calender</span></li>
-                    <li  class="changeText py-[8px] my-[12px] uppercase px-0 sm:px-[32px] md:px-[40px] font-bold cursor-pointer block sm:flex text-center items-center ">
-                        <i class="mr-[12px] fas fa-cog"></i><span class="hidden sm:block">Settings</span></li>
-                </ul>
-            </div>
-            <div class="w-full justify-center items-center bg-white absolute bottom-0 w-[100%] text-center text-[14px] ">
-                <li class=" h-[40px] uppercase text-[#707C97] font-bold list-none px-0 sm:px-[32px] md:px-[40px] items-center block sm:flex text-center cursor-pointer hover:text-[#4a5264]">
-                    <i class="fas fa-power-off mr-[18px]"></i><span class="hidden sm:block">Log out</span></li>
-            </div>
-        </div>
-
-        <div class="px-[12px] md:px-[26px] lg:px-[40px] w-[1288px] pt-[44px] flex space-x-[36px] bg-[#f3f3fb]">
-
-            <div class="feed-area  w-[100%] lg:w-2/5 overflow-y-auto pr-[6px]">
-                <div class="w-full justify-between flex">
-                    <div class="block items-center">
-                        <span class="text-[20px] font-semibold block">Chats</span>
-                        <span class="block text-[12px] text-[#707C97] items-center">Recent Chats
-                            <i class="fas fa-angle-down"></i>
-                        </span>
-                    </div>
-                    <div class="flex right-0 w-[80px] sm:w-[200px] h-[44px] cursor-pointer bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md text-white justify-center items-center hover:from-[#08bde0] hover:to-[#3b88ff] shadow-blue-200 shadow-lg">
-                        <i class="fas fa-plus mr-2 sm:mr-4"></i><span class="hidden sm:block">Create New Chat</span><span class="block sm:hidden">New</span>
-                    </div>
-                </div>
-                <div class="block space-y-[12px] mt-[12px] w-full">
-                    <div class="flex bg-white rounded-md p-0 overflow-hidden">      
-                        <i class="fas fa-search left-10px ml-9 leading-[44px] text-[#707C97] cursor-pointer"></i>                  
-                        <input type="text" name="" value="" class="w-2/3 block p-2 border border-transparent border-r-[#ddd] outline-none relative" 
-                            placeholder="Search"></input>
-                        <button type="" class="w-1/3 items-center block justify-center text-[#707C97]">Messages
-                            <i class="fas fa-angle-down"></i>
-                        </button>                        
-                    </div>
-
-                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
-                        <div class="flex w-full justify-between">
-                            <div class="flex space-x-3">
-                                <div class="relative min-w-[38px]">
-                                    <img src="https://bizweb.dktcdn.net/100/378/894/files/cach-tao-dang-chup-hinh-o-bien.jpg?v=1624865328807" alt="" 
-                                    class="object-cover size-[38px] rounded-full">
-                                    <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div>
-                                </div>
-                                <div class="block items-center justify-center">
-                                    <span class="font-semibold text-[14px] ">Luy Robin</span>
-                                    <p class="text-[12px] text-blue-400 font-semibold"><i class="fas fa-ellipsis-h"></i>
-                                        writes
-                                    </p>
-                                </div>
-                            </div>
-                            <span class="text-[12px] font-semibold text-[#707C97]">1 minute ago</span>
+<body>
+    <div class="grid grid-cols-1 md:grid-cols-2 p-[36px] w-full h-[100vh]">
+        <div class="flex w-[100%] h-[100%] items-center text-center justify-center">
+            <form class="block w-[80%]">
+                <h3 class="text-center font-bold text-[26px]">Welcome to Chat <span class="text-[#2563EB]">System</span></h3>
+                <h5 class="text-center text-[#9B9B9B] text-[15px]">Example</h5>
+                <div class="block w-full">
+                    <input type="text" name="" value="" class="outline-none text-left w-full p-2 px-4 mt-8 relative" placeholder="Enter your full name">
+                        <div class="w-full border border-transparent border-b-[#ddd]"></div>
+                    </input>
+                    <input type="password" name="" value="" class="outline-none text-left w-full p-2 pl-4 pr-12 mt-8 relative block items-center" placeholder="Enter your password">
+                        <div class="w-full border border-transparent border-b-[#ddd]"></div>
+                        <div class="bg-white w-[30px] block text-[#9B9B9B] -translate-y-[130%] float-right">
+                            <i class="far fa-eye-slash"></i>
                         </div>
-                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
-                            <p class="w-[85%] text-[14px]">Most of its text is made up from sections 1.10.32–3 of Cicero's De finibus bonorum et malorum 
-                                (On the Boundaries of Goods and Evils; finibus may also be translated as purposes). </p>
-                            <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div>
-                        </div>
-                    </div>
-
-                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
-                        <div class="flex w-full justify-between">
-                            <div class="flex space-x-3">
-                                <div class="relative min-w-[38px]">
-                                    <img src="https://chothuestudio.com/wp-content/uploads/2023/06/baccb183122137c0a5dafa884d950c69.jpg" alt="" 
-                                    class="object-cover size-[38px] rounded-full">
-                                    <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div>
-                                </div>
-                                <div class="block items-center justify-center">
-                                    <span class="font-semibold text-[14px] ">Jared Sunn</span>
-                                    <p class="text-[12px] text-blue-400 font-semibold"><i class="fas fa-compact-disc"></i>
-                                        records voice message
-                                    </p>
-                                </div>
-                            </div>
-                            <span class="text-[12px] font-semibold text-[#707C97]">1 minute ago</span>
-                        </div>
-                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
-                            <div class="w-[85%] text-[14px]"><i class="fas fa-microphone-alt"></i>
-                                Voice message (01:15) </div>
-                            <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">1</div>
-                        </div>
-                        <div class="xs:w-[60%] sm:w-[50%] md:w-[40%] lg:w-[60%] xl:w-[50%] mt-1 justify-between flex space-x-2">
-                            <button type="file" class="py-2 px-3 rounded-full text-blue-600 font-semibold text-[13px] bg-blue-200">
-                                <i class="far fa-file-alt mx-1"></i>Files (x2)</button>
-                            <button type="file" class="py-2 px-3 rounded-full text-red-600 font-semibold text-[13px] bg-red-200">
-                                <i class="far fa-images mx-1"></i>Photo</button>
-                        </div>
-                    </div>
-
-                    <div class="block bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
-                        <div class="flex w-full justify-between">
-                            <div class="flex space-x-3">
-                                <div class="relative">
-                                    <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" 
-                                    class="object-cover size-[38px] rounded-full">
-                                    <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
-                                </div>
-                                <div class="block items-center justify-center">
-                                    <span class="font-semibold text-[14px] ">Nika Jerrardo</span>
-                                    <p class="text-[12px] text-[#f0f0f0] font-semibold">
-                                        <!-- <i class="fas fa-ellipsis-h cursor-pointer"></i> -->
-                                        last online 5 hours ago
-                                    </p>
-                                </div>
-                            </div>
-                            <span class="text-[12px] font-semibold text-[#f0f0f0]">3 days ago</span>
-                        </div>
-                        <div class="flex w-full mt-2 justify-between text-[#f0f0f0]">
-                            <p class="w-[85%] text-[14px]">Cicero famously orated against his political opponent Lucius Sergius Catilina.</p>
-                            <!-- <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div> -->
-                        </div>
-                    </div>
-
-                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
-                        <div class="flex w-full justify-between">
-                            <div class="flex space-x-3">
-                                <div class="relative">
-                                    <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/7/17/photo-4-16895567273911182507904.jpeg" alt="" 
-                                    class="object-cover size-[38px] rounded-full">
-                                    <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
-                                </div>
-                                <div class="block items-center justify-center">
-                                    <span class="font-semibold text-[14px] ">david Amrosa</span>
-                                    <p class="text-[12px] text-blue-400 font-semibold">
-                                        <!-- <i class="fas fa-ellipsis-h"></i> -->
-                                        last online 5 hours ago
-                                    </p>
-                                </div>
-                            </div>
-                            <span class="text-[12px] font-semibold text-[#707C97]">3 days ago</span>
-                        </div>
-                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
-                            <p class="w-[85%] text-[14px]">Cicero famously orated against his political opponent Lucius Sergius Catilina.</p>
-                            <!-- <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div> -->
-                        </div>
-                    </div>
-
-                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
-                        <div class="flex w-full justify-between">
-                            <div class="flex space-x-3">
-                                <div class="relative">
-                                    <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/7/17/photo-4-16895567273911182507904.jpeg" alt="" 
-                                    class="object-cover size-[38px] rounded-full">
-                                    <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
-                                </div>
-                                <div class="block items-center justify-center">
-                                    <span class="font-semibold text-[14px] ">david Amrosa</span>
-                                    <p class="text-[12px] text-blue-400 font-semibold">
-                                        <!-- <i class="fas fa-ellipsis-h"></i> -->
-                                        last online 5 hours ago
-                                    </p>
-                                </div>
-                            </div>
-                            <span class="text-[12px] font-semibold text-[#707C97]">3 days ago</span>
-                        </div>
-                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
-                            <p class="w-[85%] text-[14px]">Cicero famously orated against his political opponent Lucius Sergius Catilina.</p>
-                            <!-- <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div> -->
-                        </div>
-                    </div>
-
-                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
-                        <div class="flex w-full justify-between">
-                            <div class="flex space-x-3">
-                                <div class="relative">
-                                    <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/7/17/photo-4-16895567273911182507904.jpeg" alt="" 
-                                    class="object-cover size-[38px] rounded-full">
-                                    <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
-                                </div>
-                                <div class="block items-center justify-center">
-                                    <span class="font-semibold text-[14px] ">david Amrosa</span>
-                                    <p class="text-[12px] text-blue-400 font-semibold">
-                                        <!-- <i class="fas fa-ellipsis-h"></i> -->
-                                        last online 5 hours ago
-                                    </p>
-                                </div>
-                            </div>
-                            <span class="text-[12px] font-semibold text-[#707C97]">3 days ago</span>
-                        </div>
-                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
-                            <p class="w-[85%] text-[14px]">Cicero famously orated against his political opponent Lucius Sergius Catilina.</p>
-                            <!-- <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div> -->
-                        </div>
-                    </div>
-
-                    <div class="block bg-white rounded-md p-0 overflow-hidden py-[24px] px-[36px]">
-                        <div class="flex w-full justify-between">
-                            <div class="flex space-x-3">
-                                <div class="relative">
-                                    <img src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2023/7/17/photo-4-16895567273911182507904.jpeg" alt="" 
-                                    class="object-cover size-[38px] rounded-full">
-                                    <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
-                                </div>
-                                <div class="block items-center justify-center">
-                                    <span class="font-semibold text-[14px] ">david Amrosa</span>
-                                    <p class="text-[12px] text-blue-400 font-semibold">
-                                        <!-- <i class="fas fa-ellipsis-h"></i> -->
-                                        last online 5 hours ago
-                                    </p>
-                                </div>
-                            </div>
-                            <span class="text-[12px] font-semibold text-[#707C97]">3 days ago</span>
-                        </div>
-                        <div class="flex w-full mt-2 justify-between text-[#707C97]">
-                            <p class="w-[85%] text-[14px]">Cicero famously orated against his political opponent Lucius Sergius Catilina.</p>
-                            <!-- <div class="flex p-1 bg-[#ff0008] w-5 h-5 rounded-full items-center justify-center text-[12px] text-white mt-1">2</div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="chat-area  w-3/5 bg-white relative hidden lg:block pr-[6px] ">
-                <div class="flex w-full bg-white p-0 overflow-hidden py-[18px] px-[36px] border border-transparent border-b-[#ddd] absolute top-0">
+                    </input>
                     <div class="flex w-full justify-between">
-                        <div class="flex space-x-3">
-                            <div class="relative">
-                                <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" 
-                                class="object-cover size-[38px] rounded-full">
-                                <!-- <div class="bg-[#00f23a] size-[10px] rounded-full absolute top-[1px] border-[2px] border-white"></div> -->
-                            </div>
-                            <div class="block items-center justify-center">
-                                <span class="font-semibold text-[14px] ">Nika Jerrardo</span>
-                                <p class="text-[12px] text-blue-400 font-semibold">
-                                    <!-- <i class="fas fa-ellipsis-h"></i> -->
-                                    last online 5 hours ago
-                                </p>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-x-3 ">
-                            <button type="file" class=" bg-[#fff] w-10 h-10 block text-center items-center rounded-full shadow-lg hover:bg-[#f9f6ff] text-[#707C97]"><i class="fas fa-paperclip"></i></button>
-                            <button type="file" class=" bg-[#fff] w-10 h-10 block text-center items-center rounded-full shadow-lg hover:bg-[#f9f6ff] text-[#707C97]"><i class="fas fa-ellipsis-v"></i></button>                            
-                        </div>
+                        <span class="border-[2px] border-transparent border-b-[#2563EB] cursor-pointer text-[#2563EB] text-[11px] ml-2">Forgot password</span>
+                        <span class="text-[#2563EB] text-[11px] pr-2 cursor-pointer">Login with goggle</span>
                     </div>
+                    <button type="submit" class="block justify-center items-center p-2 bg-[#2563EB] text-white text-[16px] w-full rounded-xl mt-8">Log in</button>
                 </div>
-
-                <div class=" content-Chat block py-4 px-[36px] w-full top-[80px] absolute overflow-y-auto h-[494px] space-y-3 ">
-                    <div class="w-[80%] float-left flex space-x-4">
-                        <div class="block min-w-[26px]">
-                            <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" class="size-[26px] object-cover rounded-full">
-                        </div>
-                        <div class="block max-w-[90%] space-y-3 pb-5">
-                            <div class="block max-w-[100%] w-max bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rounded-tl-none px-4 py-2 text-white text-[14px] relative itmes-center shadow-xl shadow-cyan-100">
-                                Hello! Finally found the time to write to you) I need your help in creating interactive animations for my mobile application.
-                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
-                                </div>
-                            </div>
-                            <div class="block max-w-[100%] w-max bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rounded-tl-none px-4 py-2 text-white text-[14px] relative itmes-center shadow-xl shadow-cyan-100">
-                                Can I send you files?
-                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
-                                </div>
-                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
-                                    4 days ago
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-[80%] float-right flex justify-end mr-8">
-                        <div class="block max-w-[70%] space-y-3 pb-5 ">
-                            <div class="block max-w-[100%] w-max bg-white rounded-lg rounded-br-none px-4 py-2 text-[#4a5264] text-[14px] relative itmes-center shadow-xl shadow-gray-100 border-[2px] border-gray-200">
-                                Hey! Okay, send out.
-                                <div class="absolute size-[18px] left-0 block top-[50%] -translate-y-1/2 -translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
-                                </div>
-                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-check-double"></i>
-                                </div>
-                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
-                                    4 days ago
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="w-[80%] float-left flex space-x-4">
-                        <div class="block min-w-[26px]">
-                            <img src="https://dulichvietnam.com.vn/vnt_upload/news/05_2021/Son_Doan_kinh_nghiem_chup_anh_khi_di_du_lich.jpg" alt="" class="size-[26px] object-cover rounded-full">
-                        </div>
-                        <div class="block max-w-[90%] space-y-3 pb-5">                            
-                            <div class="block max-w-[100%] w-max bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg rounded-tl-none px-4 py-2 text-white text-[14px] relative itmes-center shadow-xl shadow-cyan-100">
-                                <div class="flex space-x-4 items-center">
-                                    <div class="size-[36px] bg-white cursor-pointer hover:bg-opacity-40 rounded-md bg-opacity-30 flex items-center text-center p-[6px]">
-                                        <i class="far fa-file w-[24px]"></i>
-                                    </div>
-                                    <div class="block space-y-1">
-                                        <span class="block">Style.zip</span>
-                                        <span class="block text-[12px] opacity-70">41.36 Mb</span>
-                                    </div>
-                                </div>
-                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
-                                </div>
-                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
-                                    4 days ago
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-[80%] float-right flex justify-end mr-8">
-                        <div class="block max-w-[70%] space-y-3 pb-5 ">
-                            <div class="block max-w-[100%] w-max bg-white cursor-pointer rounded-lg rounded-br-none px-4 py-2 text-[#4a5264] text-[14px] relative itmes-center shadow-xl shadow-gray-100 border-[2px] border-gray-200">
-                                Hello! I tweaked everything you asked. I am sending the finished file.
-                                <div class="block text-right text-[#2a8bf1]">(52.05 Mb) New_Style.zip
-                                    <i class="far fa-file w-[18px]"></i>
-                                </div>
-                                <div class="absolute size-[18px] left-0 block top-[50%] -translate-y-1/2 -translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
-                                </div>
-                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
-                                    3 days ago
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="w-[80%] float-right flex justify-end mr-8">
-                        <div class="block max-w-[70%] space-y-3 pb-5 ">
-                            <div class="block max-w-[100%] w-max bg-white cursor-pointer rounded-lg rounded-br-none px-4 py-2 text-[#4a5264] text-[14px] relative itmes-center shadow-xl shadow-gray-100 border-[2px] border-gray-200">
-                                Hello! I tweaked everything you asked. I am sending the finished file.
-                                <div class="block text-right text-[#2a8bf1]">(52.05 Mb) New_Style.zip
-                                    <i class="far fa-file w-[18px]"></i>
-                                </div>
-                                <div class="absolute size-[18px] left-0 block top-[50%] -translate-y-1/2 -translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-ellipsis-h cursor-pointer"></i>
-                                </div>
-                                <div class="absolute size-[18px] right-0 block top-[50%] -translate-y-1/2 translate-x-[200%] text-[#707C97]">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="absolute block w-max right-0 top-[100%] text-[12px] text-[#707C97]">
-                                    3 days ago
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>
+                <div class="w-full text-[#9B9B9B] relative mt-8 block items-center ">
+                    <div class=" w-full border-[1px] border-[#ddd] top-[10px]"></div>
+                    <span class="py-2 px-3 bg-white rounded-md z-10 absolute -translate-x-[50%] -translate-y-[50%]">Or</span>
                 </div>
-
-                <div class="enter-Chat absolute p-0 py-[6px] w-full bottom-0 items-center bg-white">
-                    <div class="mx-[36px] border border-transparent border-t-[#ddd] flex py-4">
-                        <div class="block">
-                            <button type="button" id="dropdownButton" class="block bg-[#2a8bf1] hover:bg-[#2782e4] size-[32px] rounded-full text-white text-center items-center shadow-lg relative"
-                            data-dropdown-toggle="dropdownShow" onclick="showList()">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </button>
-                            <div id="dropdownShow" class="z-10 hidden before:block absolute divide-y rounded-lg -translate-y-[120%] ease-in">
-                                <ul class="py-3 text-sm text-gray-700 dark:text-gray-200 space-y-3" aria-labelledby="dropdownButton">
-                                  <li class="flex bg-[#2a8bf1] size-[32px] rounded-full text-white justify-center items-center shadow-lg cursor-pointer hover:bg-[#2782e4]">
-                                    <i class="fas fa-film"></i>
-                                  </li>
-                                  <li class="flex bg-[#2a8bf1] size-[32px] rounded-full text-white justify-center items-center shadow-lg cursor-pointer hover:bg-[#2782e4]">
-                                    <i class="far fa-image"></i>
-                                  </li>
-                                  <li class="flex bg-[#2a8bf1] size-[32px] rounded-full text-white justify-center items-center shadow-lg cursor-pointer hover:bg-[#2782e4]">
-                                    <i class="far fa-file"></i>
-                                  </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="flex items-center mx-5 w-full">
-                            <input type="text" name="" value="" placeholder="Type a message here" class="block p-1 text-[14px] w-full px-3 outline-none text-[#454c5a]">
-                            <div class="flex size-[18px] items-center justify-center text-[#707C97] px-5 cursor-pointer">
-                                <i class="far fa-smile"></i>
-                            </div>
-                        </div>
-                        <div class="block">
-                            <button type="" class=" block bg-[#2a8bf1] hover:bg-[#2782e4] size-[32px] rounded-full text-white text-center items-center shadow-lg">
-                                <i class="fab fa-telegram-plane"></i></button>
-                        </div>
-
-                    </div>
-                </div>
-
+                <button type="submit" class="flex justify-center items-center p-2 bg-white text-black border-[1px] border-[#ddd] text-[16px] w-full rounded-xl mt-8 shadow-lg"><div class=" items-center mr-2">
+                    <svg width="24" height="24" viewBox="0 0 35 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_52_87)">
+                        <path d="M7.83635 20.5882L6.62433 24.9136L2.1944 25.0031C0.870504 22.6557 0.119568 19.97 0.119568 17.116C0.119568 14.3561 0.821675 11.7535 2.06621 9.46191H2.06716L6.01104 10.1531L7.73869 13.9007C7.3771 14.9085 7.18002 15.9903 7.18002 17.116C7.18015 18.3377 7.41165 19.5082 7.83635 20.5882Z" fill="#FBBB00"/>
+                        <path d="M34.6351 14.0066C34.835 15.0134 34.9393 16.0531 34.9393 17.1157C34.9393 18.3073 34.8082 19.4696 34.5586 20.5907C33.7111 24.4059 31.4966 27.7372 28.4288 30.0947L28.4279 30.0938L23.4603 29.8515L22.7573 25.6559C24.7929 24.5147 26.3837 22.7287 27.2217 20.5907H17.9122V14.0066H34.6351Z" fill="#518EF8"/>
+                        <path d="M28.4278 30.0939L28.4287 30.0948C25.4452 32.3874 21.6552 33.7591 17.5294 33.7591C10.8993 33.7591 5.13496 30.2165 2.1944 25.0031L7.83635 20.5881C9.3066 24.3392 13.0918 27.0095 17.5294 27.0095C19.4368 27.0095 21.2238 26.5166 22.7571 25.6561L28.4278 30.0939Z" fill="#28B446"/>
+                        <path d="M28.6421 4.30423L23.0021 8.71832C21.4151 7.77005 19.5392 7.22225 17.5294 7.22225C12.9914 7.22225 9.13538 10.015 7.73878 13.9006L2.06718 9.4618H2.06622C4.96374 4.12135 10.8008 0.472656 17.5294 0.472656C21.7537 0.472656 25.6269 1.91112 28.6421 4.30423Z" fill="#F14336"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_52_87">
+                        <rect x="0.119568" y="0.472656" width="34.8197" height="33.2864" rx="12" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                        
+                    </div>Log in with Goggle</button>
+                <button type="submit" class="flex justify-center items-center p-2 bg-white text-black border-[1px] border-[#ddd] text-[16px] w-full rounded-xl mt-3 shadow-lg"><div class=" items-center mr-2">
+                    <svg width="24" height="24" viewBox="0 0 36 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.8127 0.0454102C13.6787 0.0455782 9.67966 1.48752 6.53111 4.11324C3.38256 6.73896 1.28997 10.3771 0.627758 14.3767C-0.0344523 18.3763 0.776933 22.4764 2.91673 25.9432C4.90451 29.1638 7.91814 31.6428 11.4802 33.0061C12.0256 33.2148 12.6681 33.4998 13.1545 33.1766C13.4003 33.0133 13.5038 32.7408 
+                        13.5038 32.4886C13.5038 30.8329 11.9487 29.7002 10.3203 29.4006C8.49165 29.0642 7.87022 27.9732 7.62798 27.3054C7.40036 26.7554 7.09425 26.2423 6.72049 25.7807C6.19815 25.1356 4.79881 24.8234 5.032 24.0268C5.07536 23.8787 5.29877 23.7722 5.8217 23.7646C6.37845 23.8238 6.91242 24.0137 7.37838 24.3182C7.84434 
+                        24.6226 8.22856 25.0327 8.49847 25.5136C8.73658 25.9329 9.05676 26.302 9.44067 26.5998C9.82457 26.8975 10.2646 27.1181 10.7357 27.2489C11.2067 27.3797 11.6994 27.4181 12.1856 27.3619C12.5006 27.3255 12.8088 27.2498 13.1029 27.1373C13.4029 27.0225 13.5767 26.7262 13.6508 26.4137C13.8399 25.6159 13.4255 24.4853 
+                        12.6287 24.2921C9.49893 23.533 6.7575 21.5852 6.7575 16.2137C6.74394 15.2742 6.93386 14.3516 7.30497 13.5031C7.86008 12.2339 8.14679 10.7969 8.18587 9.41215C8.22675 7.96315 9.68441 6.98153 11.0304 7.51973C11.2248 7.59748 11.4322 7.68805 11.6529 7.79342C12.8773 8.37814 14.2495 8.6158 15.5939 8.43242C16.9323 
+                        8.24985 18.2882 8.23009 19.6304 8.37314C21.2897 8.54997 22.9677 8.23608 24.5037 7.58393C24.7126 7.49523 24.9076 7.42104 25.089 7.35914C26.2622 6.95877 27.3752 7.74789 27.499 8.98136C27.6638 10.6244 28.0107 12.3515 28.5709 13.9049C28.8357 14.6394 28.9683 15.4206 28.9549 16.2137C28.9549 21.7915 26.0023 23.6706 
+                        22.7331 24.3687C22.0482 24.515 21.7056 25.4359 21.95 26.0922C22.1527 26.6369 22.2335 27.218 22.1869 27.796C22.1869 30.0784 22.1651 31.9127 22.1651 32.4887C22.1651 32.9366 22.4915 33.4698 23.362 33.2992C27.2769 32.0072 30.5959 29.3936 32.7266 25.925C34.8573 22.4563 35.6609 18.3584 34.9941 14.3626C34.3273 
+                        10.3669 32.2335 6.73348 29.0863 4.11096C25.9391 1.48844 21.9435 0.0475174 17.8127 0.0454102Z" fill="black"/>
+                        </svg>
+                        
+                    </div>Log in with Github</button>
+                <h5 class="mt-6 text-[16px] text-[#9B9B9B]"><span class="text-[#2563EB]">Learn about</span> Google's legal policies</h5>
+            </form>
+        </div>
+        <div class="flex w-[100%] h-[100%] rounded-lg">
+            <div class="w-[100%] h-[100%] hidden md:flex items-center justify-center text-center">
+                <svg width="514" height="624" viewBox="0 0 694 924" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_52_109)">
+                    <rect width="697" height="924" fill="#2563EB"/>
+                    <path d="M423.498 -16.5129C418.419 -46.9864 423.768 -68.3622 469.138 -125.885L812.815 73.4077C779.482 66.1528 697.278 64.6262 635.128 116.559C577.657 159.561 622.375 58.7089 531.205 120.981C458.269 170.799 423.498 24.6263 423.498 -16.5129Z" fill="#2159D4" fill-opacity="0.74"/>
+                    <path d="M137.381 758.307C114.88 600.715 91.4044 521.07 -66.7922 527.231C-151.909 530.546 -157.45 540.176 -157.45 540.176L-80.9948 1075.65L365.161 930.682C341.329 763.769 175.134 895.567 137.381 758.307Z" fill="#7CA1F3" fill-opacity="0.46"/>
+                    <path d="M148.569 736.901C122.25 552.572 96.18 459.218 -70.6174 463.82C-160.362 466.296 -166.05 477.446 -166.05 477.446L-76.6238 1103.77L391.699 941.845C363.824 746.615 190.646 897.744 148.569 736.901Z" fill="#7CA1F3" fill-opacity="0.3"/>
+                    <path d="M203.3 527.76L183.3 528.06C176.59 528.16 169.82 528.21 163.07 528.22H162.61V527.76V516.57V516.07H163.12L183.23 516.14L193.29 516.23L203.35 516.35H203.57V516.56L203.3 527.76ZM203.3 527.76L203.08 516.57L203.3 516.79L193.24 516.91L183.18 517L163.07 517.07L163.56 516.57V527.76L163.1 527.3C169.76 527.3 176.4 527.36 183.1 527.46L203.3 527.76Z" fill="#EBEBEB"/>
+                    <path d="M180.85 530.68H140.62V541.87H180.85V530.68Z" fill="#EBEBEB"/>
+                    <path d="M398.08 571H357.85V582.19H398.08V571Z" fill="#EBEBEB"/>
+                    <path d="M447.61 209.2L427.61 209.5C420.9 209.6 414.13 209.65 407.37 209.66H406.91V209.2V198.01V197.51H407.41L427.53 197.58L437.58 197.67L447.64 197.79H447.86V198L447.61 209.2ZM447.61 209.2L447.4 198L447.61 198.22L437.55 198.34L427.5 198.43L407.38 198.5L407.88 198V209.19L407.42 208.73C414.07 208.73 420.72 208.79 427.42 208.89L447.61 209.2Z" fill="#EBEBEB"/>
+                    <path d="M470.05 212.12H429.82V223.31H470.05V212.12Z" fill="#EBEBEB"/>
+                    <path d="M180.85 209.2L160.85 209.5C154.14 209.6 147.37 209.65 140.61 209.66H140.15V209.2V198.01V197.51H140.65L160.77 197.58L170.83 197.67L180.83 197.79H181.05V198L180.85 209.2ZM180.85 209.2L180.64 198L180.85 198.22L170.85 198.34L160.79 198.43L140.67 198.5L141.17 198V209.19L140.71 208.73C147.36 208.73 154.01 208.79 160.71 208.89L180.85 209.2Z" fill="#EBEBEB"/>
+                    <path d="M362.54 361.07H322.31V372.26H362.54V361.07Z" fill="#EBEBEB"/>
+                    <path d="M545.09 204.97H477.5V286.96H545.09V204.97Z" fill="#EBEBEB"/>
+                    <path d="M537.37 212.45H485.22V279.47H537.37V212.45Z" fill="white"/>
+                    <path d="M487.25 212.45H485.22V279.47H487.25V212.45Z" fill="#C7C7C7"/>
+                    <path d="M547.12 204.97H545.09V286.96H547.12V204.97Z" fill="#C7C7C7"/>
+                    <path d="M512.45 264.58H524.75V227.95H512.45V264.58Z" fill="#EBEBEB"/>
+                    <path d="M530.62 240.14H496.83V221.14H530.62V240.14ZM497.83 239.14H529.62V222.14H497.83V239.14Z" fill="#EBEBEB"/>
+                    <path d="M545.09 407.02H477.5V489.01H545.09V407.02Z" fill="#EBEBEB"/>
+                    <path d="M537.37 414.51H485.22V481.53H537.37V414.51Z" fill="white"/>
+                    <path d="M487.25 414.51H485.22V481.53H487.25V414.51Z" fill="#C7C7C7"/>
+                    <path d="M547.12 407.02H545.09V489.01H547.12V407.02Z" fill="#C7C7C7"/>
+                    <path d="M515 430.01H502.7V466.64H515V430.01Z" fill="#EBEBEB"/>
+                    <path d="M530.62 442.2H496.83V423.25H530.62V442.2ZM497.83 441.2H529.62V424.25H497.83V441.2Z" fill="#EBEBEB"/>
+                    <path d="M167.144 385.881C183.694 402.131 186.474 427.131 182.984 449.131C182.894 449.631 182.124 449.491 182.124 449.031C182.124 444.031 182.274 439.031 182.254 434.141C182.164 433.911 182.094 433.701 182.004 433.471C177.684 430.331 173.704 426.781 171.244 421.921C168.484 416.481 167.394 410.351 165.244 404.671C165.044 404.131 165.624 404.291 166.004 404.571C176.074 411.991 179.284 419.981 182.174 430.661C182.111 425.079 181.525 419.514 180.424 414.041C178.244 403.901 173.944 393.861 166.664 386.341C166.633 386.31 166.61 386.273 166.594 386.232C166.578 386.191 166.57 386.148 166.571 386.104C166.572 386.061 166.582 386.018 166.599 385.978C166.617 385.938 166.642 385.902 166.674 385.871C166.705 385.841 166.742 385.817 166.783 385.802C166.824 385.786 166.867 385.778 166.911 385.779C166.954 385.78 166.997 385.789 167.037 385.807C167.077 385.825 167.113 385.85 167.144 385.881Z" fill="#263238"/>
+                    <path d="M164.034 387.771C161.184 387.871 159.394 392.421 157.174 393.771C156.94 393.96 156.67 394.097 156.381 394.174C156.091 394.251 155.788 394.267 155.492 394.22C155.196 394.173 154.913 394.064 154.662 393.901C154.411 393.737 154.197 393.523 154.034 393.271C151.834 390.201 154.854 386.421 157.694 384.271C155.694 385.101 153.984 386.571 151.794 386.981C151.514 387.075 151.217 387.107 150.924 387.076C150.63 387.044 150.347 386.95 150.094 386.799C149.84 386.648 149.623 386.444 149.455 386.201C149.288 385.958 149.175 385.682 149.124 385.391C148.124 381.211 153.414 379.391 157.014 379.261C155.264 378.041 150.264 374.741 152.924 373.121C155.584 371.501 161.484 376.211 163.404 377.761C166.214 380.051 169.574 383.461 169.704 387.031C169.864 391.211 166.224 388.651 164.034 387.771Z" fill="#EAB308"/>
+                    <path opacity="0.1" d="M164.034 387.771C161.184 387.871 159.394 392.421 157.174 393.771C156.94 393.96 156.67 394.097 156.381 394.174C156.091 394.251 155.788 394.267 155.492 394.22C155.196 394.173 154.913 394.064 154.662 393.901C154.411 393.737 154.197 393.523 154.034 393.271C151.834 390.201 154.854 386.421 157.694 384.271C155.694 385.101 153.984 386.571 151.794 386.981C151.514 387.075 151.217 387.107 150.924 387.076C150.63 387.044 150.347 386.95 150.094 386.799C149.84 386.648 149.623 386.444 149.455 386.201C149.288 385.958 149.175 385.682 149.124 385.391C148.124 381.211 153.414 379.391 157.014 379.261C155.264 378.041 150.264 374.741 152.924 373.121C155.584 371.501 161.484 376.211 163.404 377.761C166.214 380.051 169.574 383.461 169.704 387.031C169.864 391.211 166.224 388.651 164.034 387.771Z" fill="black"/>
+                    <path d="M164.854 388.471C161.214 386.821 154.224 389.201 153.624 387.821C152.424 385.021 158.004 383.091 161.024 382.721C158.244 381.971 152.924 380.771 153.084 378.091C153.284 374.821 161.254 377.631 165.284 380.721C170.364 384.621 170.284 388.381 169.484 389.131C168.344 390.131 165.454 388.751 164.854 388.471Z" fill="#EAB308"/>
+                    <path d="M204.834 384.281C187.674 399.841 183.944 424.781 186.594 446.861C186.674 447.361 187.444 447.251 187.464 446.791C187.654 441.791 187.694 436.791 187.894 431.901C187.994 431.681 188.074 431.471 188.174 431.251C192.614 428.251 196.714 424.881 199.364 420.111C202.364 414.781 203.644 408.701 205.974 403.111C206.194 402.571 205.604 402.711 205.214 402.971C194.874 409.971 191.364 417.871 188.074 428.431C188.344 422.852 189.141 417.311 190.454 411.881C193.014 401.881 197.694 391.971 205.254 384.731C205.534 384.461 205.134 384.001 204.834 384.281Z" fill="#263238"/>
+                    <path d="M207.874 386.281C210.714 386.491 212.324 391.101 214.484 392.521C214.709 392.721 214.974 392.87 215.261 392.959C215.548 393.049 215.85 393.076 216.149 393.04C216.447 393.005 216.735 392.906 216.992 392.751C217.25 392.596 217.472 392.388 217.644 392.141C219.964 389.141 217.094 385.261 214.334 383.041C216.334 383.951 217.954 385.481 220.124 385.971C220.4 386.076 220.695 386.119 220.99 386.099C221.285 386.079 221.572 385.995 221.831 385.853C222.09 385.712 222.316 385.516 222.492 385.279C222.669 385.042 222.792 384.77 222.854 384.481C223.974 380.341 218.854 378.281 215.204 378.051C216.994 376.911 222.124 373.801 219.524 372.051C216.924 370.301 210.854 374.811 208.874 376.291C205.974 378.461 202.494 381.741 202.234 385.291C201.904 389.501 205.644 387.071 207.874 386.281Z" fill="#EAB308"/>
+                    <path opacity="0.1" d="M207.874 386.281C210.714 386.491 212.324 391.101 214.484 392.521C214.709 392.721 214.974 392.87 215.261 392.959C215.548 393.049 215.85 393.076 216.149 393.04C216.447 393.005 216.735 392.906 216.992 392.751C217.25 392.596 217.472 392.388 217.644 392.141C219.964 389.141 217.094 385.261 214.334 383.041C216.334 383.951 217.954 385.481 220.124 385.971C220.4 386.076 220.695 386.119 220.99 386.099C221.285 386.079 221.572 385.995 221.831 385.853C222.09 385.712 222.316 385.516 222.492 385.279C222.669 385.042 222.792 384.77 222.854 384.481C223.974 380.341 218.854 378.281 215.204 378.051C216.994 376.911 222.124 373.801 219.524 372.051C216.924 370.301 210.854 374.811 208.874 376.291C205.974 378.461 202.494 381.741 202.234 385.291C201.904 389.501 205.644 387.071 207.874 386.281Z" fill="black"/>
+                    <path d="M207.024 386.951C210.724 385.441 217.614 388.081 218.264 386.731C219.574 383.971 214.064 381.841 211.064 381.351C213.874 380.711 219.234 379.711 219.174 377.031C219.094 373.751 211.034 376.261 206.884 379.191C201.664 382.891 201.554 386.651 202.364 387.431C203.474 388.511 206.404 387.201 207.024 386.951Z" fill="#EAB308"/>
+                    <path d="M187.344 425.381C186.18 433.706 184.398 441.932 182.014 449.991C181.98 450.15 181.885 450.29 181.749 450.379C181.614 450.468 181.448 450.499 181.289 450.466C181.129 450.433 180.99 450.338 180.901 450.202C180.812 450.066 180.78 449.9 180.814 449.741C181.944 442.161 183.994 434.741 185.124 427.131C186.352 419.46 186.795 411.683 186.444 403.921C185.714 391.151 182.244 377.551 173.914 367.561C173.724 367.321 174.114 366.981 174.304 367.201C190.994 386.671 188.304 410.531 188.304 412.671C190.674 404.611 193.104 395.381 202.044 387.171C202.434 386.821 202.734 386.991 202.664 387.591C201.064 402.531 196.914 410.341 188.244 418.331C187.974 420.691 187.664 423.051 187.344 425.381Z" fill="#263238"/>
+                    <path d="M173.704 369.791C170.704 368.461 166.564 372.281 163.594 372.551C162.024 372.691 160.854 372.071 160.594 370.451C159.854 366.161 164.894 363.751 168.904 362.981C166.374 362.821 163.904 363.501 161.414 362.831C161.073 362.791 160.746 362.677 160.454 362.498C160.162 362.318 159.912 362.078 159.722 361.793C159.532 361.507 159.406 361.184 159.352 360.846C159.299 360.507 159.32 360.161 159.414 359.831C160.514 355.011 166.904 355.721 170.684 357.441C169.484 355.301 165.954 349.361 169.524 349.011C173.094 348.661 176.854 356.531 178.064 359.111C179.834 362.891 181.594 368.111 179.934 371.891C178.034 376.301 175.544 371.801 173.704 369.791Z" fill="#EAB308"/>
+                    <path opacity="0.1" d="M173.704 369.791C170.704 368.461 166.564 372.281 163.594 372.551C162.024 372.691 160.854 372.071 160.594 370.451C159.854 366.161 164.894 363.751 168.904 362.981C166.374 362.821 163.904 363.501 161.414 362.831C161.073 362.791 160.746 362.677 160.454 362.498C160.162 362.318 159.912 362.078 159.722 361.793C159.532 361.507 159.406 361.184 159.352 360.846C159.299 360.507 159.32 360.161 159.414 359.831C160.514 355.011 166.904 355.721 170.684 357.441C169.484 355.301 165.954 349.361 169.524 349.011C173.094 348.661 176.854 356.531 178.064 359.111C179.834 362.891 181.594 368.111 179.934 371.891C178.034 376.301 175.544 371.801 173.704 369.791Z" fill="black"/>
+                    <path d="M174.214 370.941C171.214 367.391 162.814 366.341 162.884 364.611C163.044 361.091 169.814 361.911 173.134 363.041C170.634 360.861 165.714 356.941 167.224 354.241C169.084 350.951 175.934 357.881 178.554 363.111C181.864 369.711 179.944 373.591 178.694 373.951C176.974 374.441 174.694 371.521 174.214 370.941Z" fill="#EAB308"/>
+                    <path d="M198.274 429.881L205.634 486.131H160.834C161.754 481.131 170.094 429.811 170.094 429.811L198.274 429.881Z" fill="#EAB308"/>
+                    <path d="M370.37 598H462.71C463.47 595 464.2 592.1 464.94 589.22C465.78 585.887 466.603 582.657 467.41 579.53C467.58 578.83 467.77 578.13 467.95 577.44C468.56 575.03 469.15 572.68 469.74 570.44C470.09 569.04 470.44 567.67 470.74 566.32C471.04 564.97 471.44 563.58 471.74 562.26C471.83 561.91 471.92 561.55 472.01 561.26C472.1 560.97 472.2 560.49 472.29 560.12L472.64 558.75C472.77 558.27 472.89 557.8 473 557.33C473.24 556.44 473.46 555.57 473.67 554.71C474 553.45 474.31 552.21 474.62 551C474.75 550.48 474.89 549.95 475.02 549.44C475.24 548.59 475.45 547.77 475.65 546.97C475.79 546.43 475.92 545.9 476.05 545.39C476.6 543.27 477.1 541.28 477.57 539.39C477.7 538.9 477.81 538.39 477.94 537.95C478.14 537.14 478.34 536.37 478.53 535.62C478.66 535.15 478.77 534.7 478.88 534.25C479.29 532.66 479.66 531.25 479.98 529.94C480.07 529.6 480.15 529.27 480.24 528.94L480.81 526.68C480.88 526.42 480.94 526.16 481.01 525.92C481.08 525.68 481.14 525.41 481.19 525.19C481.24 524.97 481.28 524.86 481.31 524.72C481.34 524.58 481.43 524.27 481.48 524.09C481.495 523.995 481.518 523.901 481.55 523.81L481.76 522.97H392C392 522.97 389 533.18 384.3 549.63C383.3 552.98 382.3 556.63 381.19 560.43C378 571.3 374.33 584.1 370.37 598Z" fill="#37474F"/>
+                    <path d="M447.59 598H449.89C453.31 583.853 456.623 569.683 459.83 555.49C460.603 552.037 461.367 548.58 462.12 545.12L462.33 544.12C462.336 544.086 462.328 544.05 462.309 544.021C462.29 543.991 462.261 543.97 462.227 543.961C462.193 543.953 462.157 543.957 462.126 543.973C462.095 543.99 462.072 544.017 462.06 544.05L461.97 544.37C460.93 548.077 459.897 551.793 458.87 555.52C455 569.62 451.24 583.78 447.59 598Z" fill="#263238"/>
+                    <path d="M394.87 522.88L398.87 542.74L402.09 559L407.63 586.75L408.2 589.6L409.15 594.34L409.86 597.93H462.72C463.47 594.93 464.21 592.02 464.94 589.15C465.78 585.817 466.603 582.587 467.41 579.46C467.58 578.76 467.77 578.06 467.95 577.37C468.56 574.96 469.15 572.61 469.74 570.37C470.09 568.97 470.44 567.6 470.74 566.25C471.04 564.9 471.44 563.51 471.74 562.19C471.83 561.84 471.92 561.48 472.01 561.19C472.1 560.9 472.2 560.42 472.29 560.05L472.64 558.68C472.77 558.2 472.89 557.73 473 557.26C473.24 556.37 473.46 555.5 473.67 554.64C474 553.38 474.31 552.14 474.62 550.93C474.76 550.4 474.89 549.88 475.02 549.37C475.24 548.52 475.45 547.7 475.65 546.9C475.79 546.36 475.92 545.83 476.05 545.32C476.6 543.2 477.1 541.21 477.57 539.32C477.7 538.83 477.81 538.32 477.94 537.88C478.14 537.07 478.34 536.3 478.53 535.55C478.66 535.08 478.77 534.63 478.88 534.18C479.29 532.59 479.66 531.18 479.98 529.87C480.07 529.53 480.15 529.2 480.24 528.87L480.81 526.61C480.88 526.35 480.94 526.09 481.01 525.85C481.08 525.61 481.14 525.34 481.19 525.12C481.24 524.9 481.28 524.79 481.31 524.65C481.34 524.51 481.43 524.2 481.48 524.02C481.495 523.925 481.518 523.831 481.55 523.74L481.76 522.9L394.87 522.88Z" fill="#263238"/>
+                    <path d="M394.86 522.85C394.86 523.35 395.24 528.71 396.1 536.85C396.35 539.24 396.64 541.85 396.98 544.67C397.51 549.11 398.16 554 398.98 559.17C400.36 568.17 402.16 578.03 404.5 587.65C405.33 591.11 406.25 594.54 407.22 597.9H523.22C521.85 580.22 520.6 564.23 519.61 551.63C518.21 533.89 517.33 522.78 517.33 522.78H412.09L394.86 522.85Z" fill="#37474F"/>
+                    <path d="M395.11 533.51C395.24 537.66 395.41 541.81 395.68 545.94C395.96 550.42 396.37 554.89 396.96 559.36C396.971 559.524 396.991 559.688 397.02 559.85C397.573 564.037 398.2 568.213 398.9 572.38C399.57 576.26 400.06 580.45 401.78 584.05C402.432 585.438 403.353 586.682 404.49 587.71C405.538 588.663 406.817 589.325 408.2 589.63C408.426 589.687 408.657 589.724 408.89 589.74C408.95 589.74 409.02 589.74 409.09 589.74C409.047 589.762 409.011 589.797 408.988 589.84C408.964 589.883 408.955 589.932 408.96 589.98C409.01 591.37 408.96 592.79 409.13 594.17C409.13 594.23 409.13 594.29 409.13 594.35C409.27 595.55 409.49 596.74 409.71 597.94H411.71C411.71 597.94 411.71 597.94 411.71 597.87C411.36 596.56 411.07 595.24 410.71 593.87C410.35 592.5 409.91 591.21 409.6 589.87C409.585 589.815 409.549 589.769 409.5 589.74C410.765 589.804 412.019 589.477 413.092 588.805C414.165 588.132 415.006 587.146 415.5 585.98C416.003 584.202 416.037 582.325 415.6 580.53L414.52 573.4C413.84 569.04 412.97 564.72 412.19 560.4C412.08 559.74 411.96 559.08 411.84 558.4C410.29 549.57 408.66 540.73 406.71 531.98C406.64 531.62 406.55 531.26 406.47 530.89C406.39 530.52 406.03 530.72 406.05 530.95C406.11 531.54 406.17 532.13 406.24 532.72C406.58 536.08 406.98 539.42 407.44 542.72C408 546.64 408.39 550.58 408.94 554.5L409.51 558.5C410.41 564.95 411.35 571.4 412.45 577.82C412.97 580.82 414.83 586.15 410.53 587.08C409.546 587.298 408.518 587.167 407.62 586.71C405.725 585.583 404.304 583.806 403.62 581.71C402.4 578.29 401.97 574.53 401.34 570.97C400.627 567.043 400 563.107 399.46 559.16C398.76 554.24 398.04 549.32 397.26 544.41C396.88 541.9 396.48 539.41 396.08 536.89C395.9 535.74 395.71 534.58 395.52 533.42C395.49 533.19 395.11 533.26 395.11 533.51Z" fill="#263238"/>
+                    <path d="M497.77 564.35C492.939 564.303 488.133 563.658 483.46 562.43C481.3 561.87 479.17 561.18 477.06 560.49C474.964 559.906 473.001 558.921 471.28 557.59C468.03 554.78 466.51 550.36 465.1 546.44C463.557 542.016 462.304 537.497 461.35 532.91C461.3 532.68 460.97 532.75 460.96 532.97C460.868 538.164 461.542 543.343 462.96 548.34C464.13 552.58 465.7 557.34 469.13 560.34C472.73 563.46 477.63 564.56 482.24 565.13C487.427 565.735 492.671 565.665 497.84 564.92C497.877 564.915 497.914 564.904 497.946 564.885C497.979 564.866 498.008 564.842 498.031 564.812C498.055 564.782 498.072 564.748 498.082 564.712C498.092 564.675 498.095 564.637 498.09 564.6C498.085 564.563 498.073 564.526 498.055 564.494C498.036 564.461 498.012 564.432 497.982 564.409C497.952 564.386 497.918 564.368 497.882 564.358C497.845 564.348 497.807 564.345 497.77 564.35Z" fill="#263238"/>
+                    <path d="M505.81 533C506.07 539.5 506.343 546 506.63 552.5C507.297 567.64 508.027 582.78 508.82 597.92H511C510 582.74 508.95 567.577 507.85 552.43C507.37 545.937 506.877 539.457 506.37 532.99C506.369 532.916 506.338 532.845 506.284 532.794C506.231 532.742 506.159 532.714 506.085 532.715C506.011 532.716 505.94 532.747 505.889 532.801C505.837 532.854 505.809 532.926 505.81 533Z" fill="#263238"/>
+                    <path d="M407.74 389.16C362.04 430.35 319.67 475.46 316.35 498.48C311.76 530.36 331.35 539.21 340.15 539.29C364.07 539.53 407.54 442.59 422.66 405.58C437.34 369.64 417.78 380.11 407.74 389.16Z" fill="#FFC4C0"/>
+                    <path d="M338.76 455.08L389.58 482.7C389.58 482.7 421.17 424.34 428.45 397.29C435.73 370.24 424.86 371 401 392.06C377.14 413.12 338.76 455.08 338.76 455.08Z" fill="#C7C7C7"/>
+                    <path d="M338.76 455.08L389.58 482.7C389.58 482.7 421.17 424.34 428.45 397.29C435.73 370.24 424.86 371 401 392.06C377.14 413.12 338.76 455.08 338.76 455.08Z" fill="#EAB308"/>
+                    <path opacity="0.1" d="M428.45 397.28C421.17 424.34 389.57 482.71 389.57 482.71L343.3 457.55L428.52 377.45C431.36 379.63 431.48 386.06 428.45 397.28Z" fill="black"/>
+                    <path d="M349.22 447.29C368.81 460.55 387.8 469.16 391.61 471.35C391.79 471.46 391.94 471.16 391.75 471.06C387.9 469.11 367.05 456.13 349.37 446.97C349.17 446.86 349 447.16 349.22 447.29Z" fill="#263238"/>
+                    <path d="M378.12 558.91L526.93 559.34C526.93 559.34 513.93 447.34 459.31 381.23C446.67 365.92 426.31 374.23 417.72 382.37C395.92 403 377.7 558.37 378.12 558.91Z" fill="#EAB308"/>
+                    <path d="M429.31 375.14C432.88 377.75 436.31 380.63 439.74 383.3L449.74 391.05C452.74 393.4 455.74 396.05 459.15 397.9C462.22 399.58 465.79 400.33 469.08 398.83C469.884 398.457 470.64 397.987 471.33 397.43L471.67 397.96C469.994 399.353 467.924 400.186 465.75 400.34C462.46 400.53 459.39 399.03 456.75 397.23C453.41 394.97 450.3 392.36 447.11 389.89C440.92 385.1 434.81 380.1 428.45 375.52C428.7 375.39 429 375.26 429.31 375.14ZM488.66 464.23C493.925 464.198 499.182 464.664 504.36 465.62C504.24 465.27 504.11 464.91 503.97 464.56C499.42 463.727 494.806 463.295 490.18 463.27C476.71 463.02 458.69 463.86 450.55 450.66C447.34 445.46 446.3 438.55 449.83 433.22C452.94 428.52 458.75 426.49 464.2 426.54C467.042 426.557 469.855 427.114 472.49 428.18C475.602 429.599 478.473 431.495 481 433.8C485.84 437.92 490.35 442.75 496.41 445.04L495.93 443.88C494.126 443.105 492.415 442.129 490.83 440.97C485.2 436.9 480.65 431.26 474.39 428.08C469.597 425.663 464.107 425.008 458.88 426.23C453.88 427.44 449.43 430.69 447.58 435.64C445.52 441.16 447.13 447.48 450.42 452.19C458.88 464.26 475.53 464.06 488.66 464.23ZM465.82 412.77C469.757 410.883 473.828 409.289 478 408C477.82 407.71 477.64 407.4 477.45 407.11C467.85 409.8 458.98 415.87 449.08 417.57C437.067 419.475 424.771 416.94 414.49 410.44C411.673 408.679 409.046 406.631 406.65 404.33C406.53 404.65 406.42 404.97 406.31 405.33C408.599 407.482 411.083 409.417 413.73 411.11C423.658 417.47 435.474 420.217 447.19 418.89C453.76 418 459.8 415.49 465.82 412.77ZM474.82 519.02C482.158 521.672 489.656 523.856 497.27 525.56C505.71 527.56 516.15 529.24 522.97 534.95C522.88 534.46 522.78 533.95 522.68 533.48C515.87 528.29 506.1 526.63 497.97 524.73C490.334 523.011 482.81 520.827 475.44 518.19C469.11 515.86 462.85 512.73 458.22 507.68C456.224 505.543 454.682 503.023 453.689 500.273C452.695 497.523 452.27 494.599 452.44 491.68C452.83 485.78 456.19 480.41 462 478.57C468.23 476.57 475.18 478.92 480.38 482.47C486.32 486.54 490.59 492.65 495.16 498.09C499.49 503.28 504.29 508.09 510.62 510.71C512.995 511.717 515.525 512.309 518.1 512.46C518.03 512.17 517.97 511.86 517.89 511.56C512.84 511.24 507.89 508.76 503.97 505.72C498.2 501.26 494.06 495.05 489.31 489.59C484.96 484.59 479.98 480.15 473.56 478.07C468 476.27 461.61 476.45 456.91 480.28C452.81 483.64 451.18 489.08 451.46 494.23C451.801 499.862 454.199 505.172 458.2 509.15C462.78 513.78 468.76 516.76 474.81 519L474.82 519.02ZM456.73 544.49C455.67 549.32 456.17 554.26 455.88 559.14H456.8C457.15 553.14 456.2 546.87 458.69 541.22C459.284 539.775 460.185 538.476 461.329 537.413C462.474 536.349 463.835 535.547 465.32 535.06C468.644 534.204 472.168 534.599 475.22 536.17C481.68 539.33 485.13 546.17 488.27 552.25C489.49 554.58 490.74 556.99 492.18 559.25H493.26C489.7 553.85 487.43 547.69 483.59 542.45C479.88 537.45 474.3 533.31 467.75 533.75C461.68 534.16 457.94 538.88 456.72 544.49H456.73ZM398.39 559H399.57C400.901 556.655 401.853 554.113 402.39 551.47C403.83 544.83 403.39 537.96 402.93 531.24C401.83 515.67 399.14 499.77 402.55 484.3C403.854 477.964 406.322 471.925 409.83 466.49C413.51 460.99 418.83 455.82 425.26 453.72C426.952 453.092 428.752 452.811 430.555 452.895C432.357 452.98 434.124 453.427 435.75 454.21C438.489 455.751 440.657 458.137 441.93 461.01C445.18 467.93 443.17 475.76 440.07 482.34C434 495.18 424.15 506 419.26 519.46C417.098 525.471 416.193 531.862 416.602 538.237C417.012 544.612 418.726 550.835 421.64 556.52C422.08 557.37 422.54 558.21 423.03 559.04H424.12C421.715 555.089 419.922 550.797 418.8 546.31C417.161 539.925 416.949 533.256 418.18 526.78C419.54 519.78 422.65 513.35 426.18 507.27C429.71 501.19 433.92 495.27 437.51 489.06C441.1 482.85 444.58 475.88 444.51 468.47C444.44 462.75 441.78 456.69 436.72 453.7C430.72 450.14 423.53 452.56 418.28 456.3C407.95 463.67 402.71 476.04 400.79 488.24C398.29 504.16 401.42 520.24 402.17 536.18C402.48 542.54 402.46 549.11 400.23 555.18C399.758 556.517 399.141 557.798 398.39 559ZM413.31 424.6C410.098 421.879 406.066 420.316 401.86 420.16C401.79 420.42 401.72 420.7 401.64 420.96C402.648 421.009 403.651 421.133 404.64 421.33C410.78 422.55 417 427.33 417.07 434.08C417.16 441.43 410.92 446.89 404.88 449.93C401.34 451.71 397.63 453.09 394 454.62C393.94 454.94 393.87 455.25 393.81 455.62C396.11 454.62 398.45 453.76 400.81 452.8C407.06 450.24 413.36 446.8 416.47 440.5C417.845 437.884 418.281 434.875 417.706 431.976C417.131 429.078 415.579 426.463 413.31 424.57V424.6Z" fill="white"/>
+                    <path d="M469.76 386.23C513.1 419.5 558.29 476 559 508.58C559.67 540.78 541.58 537.58 538.54 536.58C506.34 526.58 467.54 437.23 453.16 400.86C438.88 364.79 459 378 469.76 386.23Z" fill="#FFC4C0"/>
+                    <path d="M539.39 451.13L489.07 479.66C489.07 479.66 456.43 421.87 448.67 394.95C440.91 368.03 451.8 368.62 476.08 389.23C500.36 409.84 539.39 451.13 539.39 451.13Z" fill="#EAB308"/>
+                    <path d="M528.79 443.53C509.43 457.13 490.6 466.09 486.79 468.34C486.61 468.45 486.46 468.15 486.64 468.05C490.45 466.05 511.07 452.68 528.58 443.21C528.83 443.1 529 443.4 528.79 443.53Z" fill="#263238"/>
+                    <path d="M492.3 477.69C491.276 478.085 490.275 478.536 489.3 479.04C484.47 469.43 485.35 471.63 480.42 462.04C478.013 457.373 475.6 452.683 473.18 447.97C470.68 443.09 468.44 437.97 465.68 433.27C465.665 433.241 465.64 433.219 465.609 433.208C465.578 433.198 465.544 433.2 465.515 433.215C465.486 433.23 465.464 433.255 465.453 433.286C465.443 433.317 465.445 433.351 465.46 433.38C467.06 438 469.23 442.48 471.28 446.94C470.83 446.25 470.4 445.54 469.9 444.87C468.79 443.38 467.7 441.87 466.72 440.31C466.56 440.07 466.16 440.26 466.31 440.51C467.31 442.01 468.09 443.56 468.92 445.14C469.75 446.72 470.66 448.21 471.59 449.73C472.52 451.25 473.49 452.57 474.49 453.96L474.85 454.48C476.17 457.27 477.45 460.07 478.85 462.83C483.69 472.5 488.67 480.11 488.85 480.06C490.122 479.453 491.342 478.744 492.5 477.94C492.58 477.86 492.44 477.68 492.3 477.69Z" fill="#263238"/>
+                    <path d="M342.36 538.16C357.28 535.98 365.73 508.27 382.29 464.16C385.19 456.42 346.68 412.09 341.45 419.22C334.86 428.22 317.45 478.01 315.67 491.55C312.24 518.23 325 540.71 342.36 538.16Z" fill="#FFC4C0"/>
+                    <path d="M365.31 508.79C366.65 505.04 368.07 501.32 369.5 497.6L373.83 486.47C375.33 482.78 376.77 479.07 378.22 475.37C378.96 473.517 379.673 471.66 380.36 469.8C381.07 467.94 381.76 466.07 382.29 464.15C381.46 468.055 380.341 471.892 378.94 475.63C377.63 479.4 376.18 483.12 374.76 486.84C373.34 490.56 371.76 494.23 370.2 497.89C368.64 501.55 367 505.2 365.31 508.79Z" fill="#263238"/>
+                    <path d="M327.63 451.19C329.72 436.05 333.99 414.93 339.4 410.5C345.08 405.86 365.71 390.33 371.66 388.27C377.61 386.21 404.17 376.1 409.05 378.92C412.96 381.18 408.33 391.45 395.7 396.38C384.59 400.7 378.87 404.74 375.7 406.11C372.53 407.48 364.7 418 366.8 422.64C368.05 425.37 376.01 428.58 380.96 426.34C385.91 424.1 387.13 414.34 392.78 409.69C398.43 405.04 408.41 405.63 408.99 408.32C409.57 411.01 406.27 412.27 401.17 421.43C397.89 427.31 397.67 441.43 390.23 451.57C386.49 456.66 380 470.2 380 470.2L327.63 451.19Z" fill="#FFC4C0"/>
+                    <path d="M398.06 405.51C399.886 405.247 401.599 404.47 403 403.27C403.564 402.728 403.957 402.033 404.13 401.27C404.195 400.853 404.195 400.428 404.13 400.01C404.116 399.563 403.946 399.135 403.65 398.8C403.55 398.73 403.7 398.61 403.75 398.71C403.885 398.921 404.036 399.121 404.2 399.31C404.316 399.489 404.413 399.68 404.49 399.88C404.64 400.276 404.711 400.697 404.7 401.12C404.66 402.046 404.307 402.93 403.7 403.63C402.97 404.377 402.078 404.946 401.093 405.293C400.108 405.64 399.057 405.755 398.02 405.63C398 405.66 398 405.53 398.06 405.51Z" fill="#263238"/>
+                    <path d="M339.4 410.5C344.21 402.95 356.52 389.31 368.72 384.63C376.96 381.46 405.34 395.26 404.52 400.68C403.7 406.1 398.85 406.13 391.67 405.28C389.06 404.97 375.23 400.01 372.87 402.91C369.49 407.09 365.19 421.34 365.19 421.34L339.4 410.5Z" fill="#FFC4C0"/>
+                    <path d="M403.81 398.56C400.3 392.76 392.6 389.67 384.93 387.23C384.81 387.23 384.74 387.37 384.86 387.41C386.81 388.03 399.31 393.77 403.73 398.66C403.78 398.71 403.85 398.62 403.81 398.56Z" fill="#263238"/>
+                    <path d="M339.4 410.5C344.21 402.95 356.52 389.31 368.72 384.63C376.96 381.46 399.42 399.12 398.59 404.55C397.76 409.98 390.81 410.41 383.11 407.74C380.62 406.87 372.28 401.01 369.92 403.91C366.54 408.08 358.29 418.44 358.29 418.44L339.4 410.5Z" fill="#FFC4C0"/>
+                    <path d="M363 412C363.78 410.81 364 410.39 364.83 409.21C365.66 408.03 366.43 406.87 367.31 405.76C367.994 404.725 368.853 403.818 369.85 403.08C370.88 402.493 372.073 402.254 373.25 402.4C375.92 402.65 378.33 404.34 380.6 405.64C383.13 407.09 388.37 409.44 392.39 409.01C393.495 408.946 394.574 408.653 395.56 408.15C396.307 407.808 396.956 407.286 397.45 406.63C399.19 403.63 397.01 400.31 394.79 397.92C390.64 393.47 385.06 390.25 379.65 387.6C378.32 386.95 376.98 386.34 375.65 385.72C374.144 384.915 372.484 384.442 370.78 384.33C367.99 384.33 363.42 387.15 362.01 388.01C361.9 388.07 361.82 387.9 361.92 387.83C363.64 386.76 367.92 383.28 372.38 383.5C374.024 383.748 375.611 384.283 377.07 385.08C378.64 385.75 380.19 386.48 381.72 387.24C384.706 388.707 387.574 390.402 390.3 392.31C392.86 394.14 395.59 396.31 397.3 398.94C398.097 400.104 398.565 401.463 398.653 402.871C398.741 404.279 398.446 405.685 397.8 406.94C396.57 408.94 393.94 409.48 392.74 409.64C391.562 409.795 390.368 409.795 389.19 409.64C386.567 409.074 383.987 408.322 381.47 407.39C379.03 406.39 376.83 404.77 374.32 404.01C373.727 403.807 373.1 403.724 372.475 403.767C371.85 403.81 371.239 403.978 370.68 404.26C369.654 404.946 368.737 405.782 367.96 406.74C366.282 408.391 364.762 410.195 363.42 412.13C363.09 412.69 362.72 412.52 363 412Z" fill="#263238"/>
+                    <path d="M335.84 417.1C337.6 413.5 340.57 398.68 343.43 394.1C346.29 389.52 359.33 373.83 365.43 374.51C373.1 375.36 365.12 389.17 361.11 394.86C357.1 400.55 357.79 410.22 357.79 410.22L335.84 417.1Z" fill="#FFC4C0"/>
+                    <path d="M366.7 385.47C365.27 387.27 364.01 389.27 362.77 391.2C361.494 392.994 360.351 394.879 359.35 396.84C358.511 398.848 358.007 400.979 357.86 403.15C357.76 404.22 357.73 405.28 357.72 406.35C357.71 407.42 357.82 408.7 357.8 409.86C357.795 409.875 357.794 409.891 357.796 409.907C357.799 409.922 357.805 409.937 357.814 409.95C357.823 409.963 357.835 409.973 357.85 409.98C357.864 409.988 357.879 409.991 357.895 409.991C357.911 409.991 357.926 409.988 357.94 409.98C357.955 409.973 357.967 409.963 357.976 409.95C357.985 409.937 357.991 409.922 357.994 409.907C357.996 409.891 357.995 409.875 357.99 409.86C358.126 407.727 358.403 405.606 358.82 403.51C359.192 401.329 359.834 399.203 360.73 397.18C362.52 393.18 365.14 389.58 366.96 385.59C367 385.44 366.8 385.34 366.7 385.47Z" fill="#263238"/>
+                    <path d="M357.88 411.88C357.992 413.675 358.366 415.444 358.99 417.13C359.558 418.843 360.247 420.514 361.05 422.13C361.826 423.743 362.691 425.312 363.64 426.83C364.56 428.36 365.64 429.74 366.77 431.2C369.068 434.05 370.901 437.247 372.2 440.67C373.417 444.095 374.026 447.706 374 451.34C373.667 447.759 372.825 444.243 371.5 440.9C370.078 437.614 368.218 434.536 365.97 431.75C364.827 430.333 363.771 428.847 362.81 427.3C361.87 425.734 361.035 424.107 360.31 422.43C358.93 419.1 357.65 415.54 357.88 411.88Z" fill="#263238"/>
+                    <path d="M412.59 390.72C412.806 393.069 413.14 395.405 413.59 397.72C413.945 399.828 414.49 401.9 415.22 403.91C416.65 407.52 419.38 410.91 423.59 411.84C425.548 412.216 427.562 412.194 429.512 411.777C431.461 411.359 433.307 410.554 434.94 409.41C438.43 407.11 441.15 403.85 443.64 400.68C445.193 398.72 446.65 396.7 448.01 394.62C448.69 393.56 449.39 392.52 450.01 391.43C450.63 390.34 451.22 389.24 451.92 388.2C451.98 388.11 452.16 388.2 452.11 388.27C450.75 390.73 446.67 398.53 445.31 400.46C442.82 403.98 440.11 407.57 436.5 410.17C433.042 412.802 428.695 413.985 424.38 413.47C422.312 413.146 420.361 412.299 418.712 411.009C417.063 409.719 415.772 408.03 414.96 406.1C414.005 403.796 413.395 401.363 413.15 398.88C412.81 396.16 412.63 393.42 412.51 390.69C412.53 390.69 412.59 390.69 412.59 390.72Z" fill="#263238"/>
+                    <path d="M427 405.05C436.18 404.8 447.5 387.69 450.52 375.46C450.72 374.62 439.9 346.15 438.34 340.28C438 339.08 403.87 359 403.87 359C403.87 359 410.76 370.33 413.41 380.57C413.62 381.43 418.12 405.29 427 405.05Z" fill="#FFC4C0"/>
+                    <path d="M403.87 359C403.87 359 410.76 370.33 413.41 380.58C413.41 380.78 413.75 382.27 414.28 384.43C431.35 378.16 439.64 364.43 443.44 355.2C441.11 348.74 438.96 342.67 438.34 340.3C438 339.08 403.87 359 403.87 359Z" fill="#263238"/>
+                    <path d="M384.27 292.65C382.08 293.02 374.73 310.48 375.8 318.12C376.87 325.76 381.86 340.56 384.14 340.49C386.42 340.42 386 292.36 384.27 292.65Z" fill="#263238"/>
+                    <path d="M436.79 299.42C444.33 311.35 447.74 350.83 440.79 361.75C430.68 377.58 408.99 384.75 394.24 371.46C379.93 358.56 376.39 307.03 384.66 296.58C396.82 281.19 425.65 281.8 436.79 299.42Z" fill="#FFC4C0"/>
+                    <path d="M408.42 324.63C409.584 324.793 410.755 324.897 411.93 324.94C413.28 325.04 414.35 325.27 415.58 324.58C415.906 324.345 416.145 324.008 416.261 323.623C416.376 323.238 416.362 322.826 416.22 322.45C415.52 320.88 413.9 320.34 412.28 320.15C410.656 319.895 408.996 320.252 407.62 321.15C407.312 321.374 407.077 321.683 406.943 322.039C406.809 322.396 406.784 322.784 406.869 323.155C406.954 323.526 407.147 323.863 407.423 324.126C407.698 324.388 408.045 324.563 408.42 324.63Z" fill="#263238"/>
+                    <path d="M410 333.25C410 333.14 410.22 333.35 410.23 333.46C410.42 336.13 411.09 339.15 413.58 339.79C413.66 339.79 413.67 339.94 413.58 339.94C410.56 339.83 409.71 335.8 410 333.25Z" fill="#263238"/>
+                    <path d="M412.05 330.23C416.3 329.46 417.51 338.01 413.58 338.71C409.65 339.41 408.5 330.87 412.05 330.23Z" fill="#263238"/>
+                    <path d="M394.68 335C394.68 334.9 394.49 335.16 394.51 335.26C394.97 337.9 395.05 340.99 392.78 342.21C392.71 342.21 392.78 342.38 392.78 342.36C395.69 341.57 395.53 337.46 394.68 335Z" fill="#263238"/>
+                    <path d="M391.92 332.61C387.62 332.9 388.5 341.48 392.48 341.22C396.46 340.96 395.53 332.38 391.92 332.61Z" fill="#263238"/>
+                    <path d="M388 328.06C389.112 327.663 390.204 327.209 391.27 326.7C392.52 326.16 393.57 325.86 394.34 324.7C394.519 324.339 394.575 323.93 394.5 323.534C394.424 323.139 394.22 322.779 393.92 322.51C392.57 321.44 390.87 321.72 389.34 322.3C387.779 322.84 386.474 323.941 385.68 325.39C385.524 325.729 385.469 326.106 385.521 326.476C385.574 326.846 385.732 327.193 385.977 327.474C386.222 327.756 386.544 327.962 386.902 328.066C387.261 328.169 387.642 328.167 388 328.06Z" fill="#263238"/>
+                    <path d="M415.46 354.89C414.92 355.6 414.46 356.54 413.46 356.76C412.473 356.883 411.47 356.795 410.52 356.5C410.51 356.494 410.499 356.489 410.487 356.487C410.476 356.484 410.464 356.484 410.452 356.487C410.441 356.489 410.43 356.494 410.42 356.5C410.41 356.507 410.402 356.515 410.395 356.525C410.388 356.535 410.384 356.546 410.382 356.558C410.379 356.569 410.379 356.581 410.382 356.593C410.384 356.604 410.389 356.615 410.395 356.625C410.402 356.635 410.41 356.643 410.42 356.65C410.868 357.125 411.437 357.469 412.066 357.645C412.695 357.821 413.36 357.823 413.99 357.65C414.509 357.433 414.951 357.068 415.263 356.6C415.574 356.132 415.74 355.582 415.74 355.02C415.75 354.82 415.54 354.79 415.46 354.89Z" fill="#263238"/>
+                    <path d="M411.56 347.36C411.036 348.504 410.282 349.527 409.344 350.365C408.406 351.203 407.305 351.838 406.11 352.23C405.071 352.584 403.987 352.79 402.89 352.84C402.68 352.86 402.47 352.86 402.26 352.84C402.063 352.85 401.867 352.85 401.67 352.84C401.524 352.833 401.385 352.778 401.273 352.684C401.161 352.59 401.082 352.462 401.05 352.32C401.04 352.23 401.04 352.14 401.05 352.05V351.82C400.7 349.82 400.46 346.66 400.46 346.66C399.77 347.14 396.21 349.38 396.12 348.31C395.4 339.42 394.59 329.54 395.74 320.55C395.751 320.493 395.782 320.443 395.827 320.406C395.871 320.37 395.927 320.35 395.985 320.35C396.043 320.35 396.099 320.37 396.143 320.406C396.188 320.443 396.219 320.493 396.23 320.55C397.23 329.07 396.8 337.71 397.71 346.27C398.97 345.451 400.341 344.814 401.78 344.38C402.08 344.38 402.14 350.38 402.37 351.33C402.363 351.36 402.363 351.39 402.37 351.42C405.85 351.42 408.29 349.97 411.28 347.2C411.45 347 411.68 347.13 411.56 347.36Z" fill="#263238"/>
+                    <path d="M441.42 333.31C434.54 334.86 430.08 327.57 426.24 317.06C423.99 310.91 423.98 298.06 423.98 298.06C423.98 298.06 407.3 308.78 397.09 309.24C386.88 309.7 377.09 302.17 376.49 294.24C375.98 287.39 386.25 277.03 401.23 274.37C411.68 272.52 430.56 278.57 439.91 288.82C439.91 288.82 453.98 293.37 453.35 303.62C452.72 313.87 449.23 331.55 441.42 333.31Z" fill="#263238"/>
+                    <path d="M440.82 332.58C431.91 335.75 425.21 322.58 424.02 315.43C422.78 307.98 424.64 300.03 424.96 292.56H424.9C422.98 301.83 421.12 313.48 425.38 322.33C428.06 327.91 433.63 336.98 441 333.07C441.25 332.93 441.1 332.48 440.82 332.58Z" fill="#263238"/>
+                    <path d="M455 300.3C452.89 294.3 445.06 289.19 439 288.54C438.94 288.54 438.92 288.63 439 288.64C446.38 290.26 455.62 297.29 454.49 305.48C453.58 312.02 451.66 320.73 448.03 326.31C447.94 326.45 448.15 326.58 448.25 326.45C451.19 322.62 452.08 318.01 453.25 313.45C454.22 309.42 456.42 304.45 455 300.3Z" fill="#263238"/>
+                    <path d="M441.37 289.54C431.49 278.74 411.76 267.62 396.96 273.32C396.96 273.32 396.96 273.41 396.96 273.39C412.86 268.74 429.36 280.59 440.87 290.11C441.23 290.39 441.65 289.84 441.37 289.54Z" fill="#263238"/>
+                    <path d="M437 334.32C437 334.32 442.35 319.89 448.69 321.48C455.03 323.07 453.23 342.48 447.36 346.55C446.644 347.13 445.818 347.559 444.932 347.812C444.045 348.065 443.117 348.136 442.203 348.021C441.289 347.906 440.407 347.608 439.611 347.143C438.815 346.679 438.12 346.059 437.57 345.32L437 334.32Z" fill="#FFC4C0"/>
+                    <path d="M448.07 327C448.18 327 448.23 327.1 448.15 327.17C444.08 330.17 442.78 335.06 442.25 339.88C443.16 337.88 444.77 336.43 447.45 337.45C447.59 337.5 447.53 337.72 447.39 337.72C446.522 337.676 445.661 337.901 444.925 338.364C444.189 338.828 443.615 339.507 443.28 340.31C442.738 341.658 442.34 343.059 442.09 344.49C441.98 344.96 441.19 344.93 441.22 344.42C441.216 344.383 441.216 344.347 441.22 344.31C439.59 338.55 442 329.24 448.07 327Z" fill="#263238"/>
+                    <path d="M418.71 398.35L439.71 460.96C440.53 462.78 439.71 464.37 437.87 464.51L404.91 467C403.904 467.006 402.917 466.727 402.063 466.196C401.208 465.666 400.521 464.904 400.08 464L379.08 401.39C378.26 399.56 379.08 397.97 380.92 397.83L413.86 395.3C414.874 395.298 415.868 395.583 416.727 396.123C417.585 396.663 418.273 397.435 418.71 398.35Z" fill="#37474F"/>
+                    <path d="M414.79 398.61L435.79 461.22C436.61 463.04 435.79 464.64 433.95 464.78L401 467.31C399.989 467.309 398.999 467.022 398.145 466.482C397.29 465.942 396.606 465.172 396.17 464.26L375.17 401.65C374.34 399.83 375.17 398.24 377.01 398.1L410 395.57C411.003 395.576 411.985 395.864 412.832 396.401C413.679 396.939 414.358 397.704 414.79 398.61Z" fill="#455A64"/>
+                    <path d="M406 402.22C406.054 402.773 406.271 403.298 406.624 403.728C406.976 404.158 407.448 404.474 407.98 404.635C408.512 404.797 409.08 404.797 409.612 404.636C410.144 404.474 410.616 404.159 410.969 403.729C411.321 403.3 411.539 402.775 411.593 402.222C411.648 401.668 411.537 401.112 411.275 400.621C411.012 400.131 410.611 399.73 410.121 399.468C409.63 399.206 409.073 399.095 408.52 399.15C407.779 399.223 407.097 399.588 406.625 400.163C406.152 400.739 405.927 401.479 406 402.22Z" fill="#263238"/>
+                    <path d="M545.34 537C531 539.09 512.9 528.1 466 494.66C459.5 490 479.84 435.43 487 440C496.05 445.77 529.92 470.15 532.17 472.25C551.2 490 555.09 535.5 545.34 537Z" fill="#FFC4C0"/>
+                    <path d="M503.83 456.27C503.83 456.27 490.37 437.83 480.3 430.32C466.81 420.32 451.03 417.16 444.3 416.25C430.3 414.35 395.3 419.42 394.95 429.78C394.67 439.16 430.27 432.16 430.27 432.16C430.27 432.16 392.8 433.3 394.54 444.65C396.28 456 437.16 445.54 437.16 445.54C437.16 445.54 398.68 447.54 402.33 459C405.09 467.63 442.64 460.23 442.64 460.23C442.64 460.23 409.58 462.23 412.03 471.23C414.75 481.17 449.83 476.52 449.83 476.52C460 498.32 473.7 504.59 484 507.88C486.49 508.67 503.83 456.27 503.83 456.27Z" fill="#FFC4C0"/>
+                    <path d="M443.25 430.94C438.84 430.94 434.38 430.86 429.99 431.22C425.6 431.58 421.21 432.11 416.87 432.88C406.22 434.78 399.87 437.64 400.27 437.5C410.03 434.35 425.73 432.79 430.13 432.42C434.53 432.05 438.88 431.47 443.27 431.1C443.38 431.09 443.35 430.94 443.25 430.94Z" fill="#263238"/>
+                    <path d="M444.86 446.78C439.23 446.99 433.64 446.99 428.02 447.45C422.4 447.91 417.16 448.84 411.61 449.68C411.18 449.74 411.36 449.95 411.79 449.9C417.36 449.28 422.57 449.14 428.15 448.59C433.73 448.04 439.3 447.26 444.88 446.91C445 446.91 445 446.78 444.86 446.78Z" fill="#263238"/>
+                    <path d="M448.69 460.13C440.07 460.01 431.44 461.48 423.01 463.13C422.59 463.21 422.85 463.46 423.28 463.4C431.8 462.24 438.47 461.27 448.69 460.4C448.84 460.41 448.87 460.13 448.69 460.13Z" fill="#263238"/>
+                    <path d="M519.25 462.63C522.97 465.08 526.55 467.73 530.02 470.54C531.761 471.931 533.429 473.41 535.02 474.97C536.667 476.521 538.115 478.271 539.33 480.18C541.639 484.021 543.578 488.072 545.12 492.28C546.721 496.452 547.854 500.788 548.5 505.21C548.021 503.041 547.42 500.901 546.7 498.8C546.01 496.69 545.25 494.61 544.4 492.56C542.774 488.449 540.794 484.487 538.48 480.72C537.339 478.85 535.961 477.136 534.38 475.62C532.83 474.05 531.16 472.62 529.5 471.12C527.84 469.62 526.12 468.24 524.4 466.83C522.68 465.42 521 464 519.25 462.63Z" fill="#263238"/>
+                    <path d="M377.27 266.63C377.27 266.63 373.16 299.53 366.4 306.94C358.29 315.82 352.4 314.52 349.13 319.1C345.85 314.51 339.97 315.82 331.85 306.93C325.1 299.53 321 266.63 321 266.63C338.8 257.99 349.14 248.3 349.14 248.3C349.45 248.61 359.74 258.12 377.27 266.63Z" fill="#EAB308"/>
+                    <path opacity="0.2" d="M349.13 248.31V319.1C345.85 314.51 339.97 315.82 331.85 306.93C325.1 299.53 321 266.63 321 266.63C338.8 257.99 349.14 248.3 349.14 248.3L349.13 248.31Z" fill="black"/>
+                    <path opacity="0.1" d="M377.27 266.63C377.27 266.63 373.16 299.53 366.4 306.94C358.29 315.82 352.4 314.52 349.13 319.1V248.31C349.45 248.61 359.74 258.12 377.27 266.63Z" fill="black"/>
+                    <path d="M372.9 269.28C372.9 269.28 369.43 297.08 363.72 303.33C356.87 310.85 351.89 309.74 349.13 313.61C346.36 309.74 341.39 310.85 334.53 303.33C328.82 297.08 325.36 269.28 325.36 269.28C340.36 261.98 349.13 253.8 349.13 253.8C349.13 253.8 357.86 262 372.9 269.28Z" fill="#EAB308"/>
+                    <path opacity="0.1" d="M349.13 253.81V313.61C346.37 309.74 341.39 310.84 334.54 303.33C328.83 297.07 325.37 269.27 325.37 269.27C340.37 261.97 349.13 253.79 349.13 253.79V253.81Z" fill="black"/>
+                    <path d="M359.78 278.41H338.48V297.73H359.78V278.41Z" fill="white"/>
+                    <path d="M357.65 284.38H355.48V275.75C355.48 274.066 354.811 272.451 353.62 271.26C352.429 270.069 350.814 269.4 349.13 269.4C347.446 269.4 345.831 270.069 344.64 271.26C343.449 272.451 342.78 274.066 342.78 275.75V284.38H340.61V275.75C340.53 274.585 340.69 273.415 341.081 272.315C341.472 271.214 342.085 270.206 342.883 269.352C343.68 268.498 344.644 267.817 345.715 267.352C346.786 266.887 347.942 266.646 349.11 266.646C350.278 266.646 351.434 266.887 352.505 267.352C353.576 267.817 354.54 268.498 355.337 269.352C356.135 270.206 356.748 271.214 357.139 272.315C357.53 273.415 357.69 274.585 357.61 275.75L357.65 284.38Z" fill="white"/>
+                    <path d="M349.8 288.4L350.49 291.66H347.57L348.26 288.4C347.99 288.233 347.783 287.982 347.668 287.686C347.554 287.39 347.539 287.064 347.626 286.759C347.713 286.454 347.897 286.185 348.15 285.994C348.404 285.803 348.713 285.699 349.03 285.699C349.347 285.699 349.656 285.803 349.91 285.994C350.163 286.185 350.347 286.454 350.434 286.759C350.521 287.064 350.506 287.39 350.392 287.686C350.277 287.982 350.07 288.233 349.8 288.4Z" fill="#37474F"/>
+                    <path d="M349.5 396.76H345.24V396H349.13V396.26H349.5V396.76ZM341.24 396.76H337.24V396H341.24V396.76ZM333.24 396.76H329.24V396H333.24V396.76ZM325.24 396.76H321.24V396H325.24V396.76ZM349.5 392.27H348.75V388.27H349.5V392.27ZM349.5 384.27H348.75V380.27H349.5V384.27ZM349.5 376.27H348.75V372.27H349.5V376.27ZM349.5 368.27H348.75V364.27H349.5V368.27ZM349.5 360.27H348.75V356.27H349.5V360.27ZM349.5 352.27H348.75V348.27H349.5V352.27ZM349.5 344.27H348.75V340.27H349.5V344.27ZM349.5 336.27H348.75V332.27H349.5V336.27ZM349.5 328.27H348.75V324.27H349.5V328.27Z" fill="#EAB308"/>
+                    <path d="M350.82 323.45C350.82 323.116 350.721 322.789 350.535 322.511C350.349 322.233 350.086 322.017 349.777 321.889C349.468 321.761 349.128 321.727 348.8 321.792C348.472 321.858 348.171 322.019 347.935 322.255C347.699 322.491 347.538 322.792 347.472 323.12C347.407 323.448 347.441 323.788 347.569 324.097C347.697 324.406 347.913 324.669 348.191 324.855C348.469 325.041 348.796 325.14 349.13 325.14C349.578 325.14 350.008 324.962 350.325 324.645C350.642 324.328 350.82 323.898 350.82 323.45Z" fill="#EAB308"/>
+                    <path d="M203.55 278.83H152.24V212.96H190.34L203.55 225.52V278.83Z" fill="#EBEBEB"/>
+                    <path d="M190.34 212.96L203.55 225.52H190.34V212.96Z" fill="#DBDBDB"/>
+                    <path d="M157.25 225.7H185.78V224.01H157.25V225.7Z" fill="#DBDBDB"/>
+                    <path d="M157.25 229.97H185.78V228.28H157.25V229.97Z" fill="#DBDBDB"/>
+                    <path d="M157.25 234.25H185.78V232.56H157.25V234.25Z" fill="#DBDBDB"/>
+                    <path d="M157.25 238.52H199.05V236.83H157.25V238.52Z" fill="#DBDBDB"/>
+                    <path d="M157.25 242.79H199.05V241.1H157.25V242.79Z" fill="#DBDBDB"/>
+                    <path d="M157.25 247.06H199.05V245.37H157.25V247.06Z" fill="#DBDBDB"/>
+                    <path d="M157.25 251.33H199.05V249.64H157.25V251.33Z" fill="#DBDBDB"/>
+                    <path d="M157.25 255.59H199.05V253.9H157.25V255.59Z" fill="#DBDBDB"/>
+                    <path d="M157.25 259.86H199.05V258.17H157.25V259.86Z" fill="#DBDBDB"/>
+                    <path d="M157.25 264.13H199.05V262.44H157.25V264.13Z" fill="#DBDBDB"/>
+                    <path d="M157.25 268.4H199.05V266.71H157.25V268.4Z" fill="#DBDBDB"/>
+                    <path d="M157.25 272.67H199.05V270.98H157.25V272.67Z" fill="#DBDBDB"/>
+                    <path d="M207.017 284.825C211.605 282.913 213.773 277.643 211.861 273.055C209.948 268.468 204.679 266.299 200.091 268.211C195.503 270.124 193.334 275.394 195.247 279.981C197.159 284.569 202.429 286.738 207.017 284.825Z" fill="#263238"/>
+                    <path d="M208.01 274.25H199.09V282.35H208.01V274.25Z" fill="white"/>
+                    <path d="M207.12 276.74H206.21V273.13C206.21 272.424 205.93 271.748 205.431 271.249C204.932 270.75 204.255 270.47 203.55 270.47C202.845 270.47 202.168 270.75 201.669 271.249C201.17 271.748 200.89 272.424 200.89 273.13V276.74H200V273.13C200 272.183 200.376 271.275 201.046 270.606C201.715 269.936 202.623 269.56 203.57 269.56C204.517 269.56 205.425 269.936 206.094 270.606C206.764 271.275 207.14 272.183 207.14 273.13L207.12 276.74Z" fill="white"/>
+                    <path d="M203.93 278.39L204.3 280.17H202.72L203.09 278.39C202.945 278.299 202.833 278.163 202.772 278.003C202.711 277.843 202.703 277.667 202.751 277.502C202.798 277.338 202.898 277.193 203.035 277.09C203.172 276.987 203.339 276.931 203.51 276.931C203.681 276.931 203.848 276.987 203.985 277.09C204.122 277.193 204.222 277.338 204.269 277.502C204.317 277.667 204.309 277.843 204.248 278.003C204.187 278.163 204.075 278.299 203.93 278.39Z" fill="#263238"/>
+                    <path d="M238.71 313.27H238V309.27H238.75L238.71 313.27ZM238.71 305.27H238V301.27H238.75L238.71 305.27ZM238.71 297.27H238V293.27H238.75L238.71 297.27ZM238.71 289.27H238V285.27H238.75L238.71 289.27ZM238.71 281.27H238V277.27H238.75L238.71 281.27ZM238.71 273.27H238V269.27H238.75L238.71 273.27ZM238.71 265.27H238V261.27H238.75L238.71 265.27ZM238.71 257.27H238V253.27H238.75L238.71 257.27ZM235 253H231V252.25H235V253ZM227 253H223V252.25H227V253ZM219 253H215V252.25H219V253ZM211 253H209.27V252.25H211V253Z" fill="#EAB308"/>
+                    <path d="M209.31 251C208.972 250.998 208.64 251.097 208.359 251.285C208.077 251.472 207.858 251.739 207.729 252.052C207.6 252.365 207.567 252.709 207.635 253.04C207.703 253.372 207.868 253.676 208.109 253.913C208.351 254.15 208.657 254.309 208.99 254.371C209.322 254.433 209.666 254.394 209.976 254.26C210.287 254.125 210.55 253.901 210.732 253.616C210.915 253.331 211.008 252.998 211 252.66C210.99 252.218 210.807 251.797 210.492 251.487C210.176 251.177 209.752 251.002 209.31 251Z" fill="#EAB308"/>
+                    <path d="M267.46 535.71H265.11V535H267.46V535.71ZM261.11 535.71H257.11V535H261.11V535.71ZM253.11 535.71H249.11V535H253.11V535.71ZM245.11 535.71H241.11V535H245.11V535.71ZM238.71 534.11H238V530.11H238.75L238.71 534.11ZM238.71 526.11H238V522.11H238.75L238.71 526.11ZM238.71 518.11H238V514.11H238.75L238.71 518.11ZM238.71 510.11H238V506.11H238.75L238.71 510.11ZM238.71 502.11H238V498.11H238.75L238.71 502.11ZM238.71 494.11H238V490.11H238.75L238.71 494.11ZM238.71 486.11H238V482.11H238.75L238.71 486.11Z" fill="#EAB308"/>
+                    <path d="M267.37 537.03C268.303 537.03 269.06 536.273 269.06 535.34C269.06 534.407 268.303 533.65 267.37 533.65C266.437 533.65 265.68 534.407 265.68 535.34C265.68 536.273 266.437 537.03 267.37 537.03Z" fill="#EAB308"/>
+                    <path d="M337.18 524.37H273.28V562.93H337.18V524.37Z" fill="#455A64"/>
+                    <path d="M296.16 529.22H278.3V552.06H296.16V529.22Z" fill="white"/>
+                    <path d="M287.23 542.59C289.566 542.59 291.46 540.696 291.46 538.36C291.46 536.024 289.566 534.13 287.23 534.13C284.894 534.13 283 536.024 283 538.36C283 540.696 284.894 542.59 287.23 542.59Z" fill="#455A64"/>
+                    <path d="M296.16 552.06H278.3C278.3 552.06 278.79 547.8 279.66 546.53C280.53 545.26 282.83 543.83 287.23 543.83C291.63 543.83 293.93 545.26 294.8 546.53C295.67 547.8 296.16 552.06 296.16 552.06Z" fill="#455A64"/>
+                    <path d="M330.18 529.22H300.78V530.33H330.18V529.22Z" fill="white"/>
+                    <path d="M330.18 540.08H300.78V541.19H330.18V540.08Z" fill="white"/>
+                    <path d="M330.18 543.28H300.78V544.39H330.18V543.28Z" fill="white"/>
+                    <path d="M330.18 546.47H300.78V547.58H330.18V546.47Z" fill="white"/>
+                    <path d="M330.18 549.67H300.78V550.78H330.18V549.67Z" fill="white"/>
+                    <path d="M330.18 552.86H300.78V553.97H330.18V552.86Z" fill="white"/>
+                    <path d="M324.59 532.42H300.78V533.53H324.59V532.42Z" fill="white"/>
+                    <path d="M340.643 571.246C345.231 569.334 347.399 564.064 345.487 559.476C343.574 554.889 338.305 552.72 333.717 554.632C329.129 556.545 326.96 561.815 328.873 566.402C330.785 570.99 336.055 573.159 340.643 571.246Z" fill="#263238"/>
+                    <path d="M341.64 560.66H332.72V568.76H341.64V560.66Z" fill="white"/>
+                    <path d="M340.75 563.15H339.84V559.54C339.84 558.835 339.56 558.158 339.061 557.659C338.562 557.16 337.885 556.88 337.18 556.88C336.475 556.88 335.798 557.16 335.299 557.659C334.8 558.158 334.52 558.835 334.52 559.54V563.15H333.61V559.54C333.61 558.593 333.986 557.685 334.656 557.016C335.325 556.346 336.233 555.97 337.18 555.97C338.127 555.97 339.035 556.346 339.704 557.016C340.374 557.685 340.75 558.593 340.75 559.54V563.15Z" fill="white"/>
+                    <path d="M337.56 564.8L337.93 566.58H336.34L336.72 564.8C336.604 564.727 336.508 564.625 336.443 564.504C336.379 564.382 336.347 564.246 336.35 564.109C336.354 563.972 336.394 563.838 336.465 563.72C336.536 563.603 336.637 563.506 336.757 563.44C336.878 563.373 337.013 563.339 337.15 563.341C337.288 563.343 337.422 563.38 337.541 563.45C337.659 563.52 337.757 563.619 337.826 563.738C337.894 563.858 337.93 563.993 337.93 564.13C337.93 564.264 337.896 564.396 337.832 564.513C337.767 564.63 337.673 564.729 337.56 564.8Z" fill="#263238"/>
+                    <path d="M558.98 598L506.49 598.24L453.99 598.33L349 598.5L244.01 598.33L191.52 598.24L139.02 598L191.52 597.75L244.01 597.67L349 597.5L453.99 597.67L506.49 597.76L558.98 598Z" fill="#263238"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_52_109">
+                    <rect width="694" height="924" rx="12" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
             </div>
         </div>
-    </div>
-    <script src="./index.js"></script>
+    </div> 
 </body>
-<script>
-    function showList() {
-      var show = document.getElementById('dropdownShow');
-      if (show.style.display === 'none') {
-        show.style.display = 'block';
-      } else {
-        show.style.display = 'none';
-      }
-    };
-
-//    var navBar = document.getElementById("menuBar");
-//    var menuLi = navBar.getElementsByClassName("changeText");
-//    for (var i = 0; i < menuLi.length; i++) {
-//        menuLi[i].addEventListener("click", function() {
-//            var current = document.getElementsByClassName("text-[#2a8bf1]");
-//            current[0].className = current[0].className.replace("text-[#2a8bf1]", "");
-//            this.className += " text-[#2a8bf1]";
-//        });
-//    }
-
-  </script>
 </html>
+
+</input>
