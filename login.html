@@ -6,9 +6,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Login</title>
+    <script>
+        
+    </script>
 </head>
 <body>
-    <div class="grid grid-cols-1 md:grid-cols-2 p-[36px] w-full h-[100vh]">
+    <div class="grid grid-cols-1 md:grid-cols-2 p-[36px] w-full h-[100vh] relative">
         <div class="flex w-[100%] h-[100%] items-center text-center justify-center">
             <form class="block w-[80%]">
                 <h3 class="text-center font-bold text-[26px]">Welcome to Chat <span class="text-[#2563EB]">System</span></h3>
@@ -218,6 +221,13 @@
                 </svg>
             </div>
         </div>
+        <button class="absolute left-0 translate-x-[50%] top-[10px] animate-pulse">
+            <a href="./register.html"><i class="fas fa-caret-square-left text-[25px] text-green-600 hover:text-[30px] transition-all"></i></a>
+        </button>
+        <button class="absolute right-0 -translate-x-[50%] top-[10px] animate-pulse">
+            <a href="./chat.html"><i class="fas fa-caret-square-right text-[25px] text-green-600 hover:text-[30px] transition-all"></i></a>
+        </button>
+        
     </div> 
 </body>
 </html>
