@@ -19,7 +19,27 @@
             border-radius: 100rem;
           }
     </style>
-   
+    <script>
+        function showList() {
+          var show = document.getElementById('dropdownShow');
+          if (show.style.display === 'none') {
+            show.style.display = 'block';
+          } else {
+            show.style.display = 'none';
+          }
+        };
+    
+        var navBar = document.getElementById("menuBar");
+        var menuLi = navBar.getElementsByClassName("changeText");
+        for (var i = 0; i < menuLi.length; i++) {
+            menuLi[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("text-[#2a8bf1] border-4 border-transparent border-l-[#2a8bf1]");
+                current[0].className = current[0].className.replace("text-[#2a8bf1] border-4 border-transparent border-l-[#2a8bf1]", "");
+                this.className += " text-[#2a8bf1] border-4 border-transparent border-l-[#2a8bf1]";
+            });
+        }
+    
+      </script>
     
     <title>Chat</title>
 </head>
@@ -417,7 +437,7 @@
                             data-dropdown-toggle="dropdownShow" onclick="showList()">
                                 <i class="fas fa-plus" aria-hidden="true"></i>
                             </button>
-                            <div id="dropdownShow" class="z-10 hidden before:block absolute divide-y rounded-lg -translate-y-[120%] ease-in">
+                            <div id="dropdownShow" class="z-10 hidden before:block absolute transition-all divide-y rounded-lg -translate-y-[120%] ease-in">
                                 <ul class="py-3 text-sm text-gray-700 dark:text-gray-200 space-y-3" aria-labelledby="dropdownButton">
                                   <li class="flex bg-[#2a8bf1] size-[32px] rounded-full text-white justify-center items-center shadow-lg cursor-pointer hover:bg-[#2782e4]">
                                     <i class="fas fa-film"></i>
@@ -447,14 +467,8 @@
 
             </div>
         </div>
-        <button class="absolute left-0 translate-x-[50%] top-[10px] animate-pulse">
-            <a href="./login.html"><i class="fas fa-caret-square-left text-[25px] text-green-600 hover:text-[30px] transition-all"></i></a>
-        </button>
-        <button class="absolute right-0 -translate-x-[50%] top-[10px] animate-pulse">
-            <a href="./authencation.html"><i class="fas fa-caret-square-right text-[25px] text-green-600 hover:text-[30px] transition-all"></i></a>
-        </button>
     </div>
-    
+    <script src="./index.js"></script>
 </body>
 
 </html>
