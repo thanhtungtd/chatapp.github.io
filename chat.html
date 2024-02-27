@@ -19,27 +19,7 @@
             border-radius: 100rem;
           }
     </style>
-    <script>
-        function showList() {
-          var show = document.getElementById('dropdownShow');
-          if (show.style.display === 'none') {
-            show.style.display = 'block';
-          } else {
-            show.style.display = 'none';
-          }
-        };
-    
-        var navBar = document.getElementById("menuBar");
-        var menuLi = navBar.getElementsByClassName("changeText");
-        for (var i = 0; i < menuLi.length; i++) {
-            menuLi[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("text-[#2a8bf1] border-4 border-transparent border-l-[#2a8bf1]");
-                current[0].className = current[0].className.replace("text-[#2a8bf1] border-4 border-transparent border-l-[#2a8bf1]", "");
-                this.className += " text-[#2a8bf1] border-4 border-transparent border-l-[#2a8bf1]";
-            });
-        }
-    
-      </script>
+   
     
     <title>Chat</title>
 </head>
